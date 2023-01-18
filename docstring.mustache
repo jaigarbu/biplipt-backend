@@ -1,0 +1,18 @@
+{{! Biplipt Docstrings }}
+{{summaryPlaceholder}}
+{{extendedSummaryPlaceholder}}
+{{#args}}
+:param `{{var}}: {{typePlaceholder}}` — {{descriptionPlaceholder}}
+{{/args}}
+{{#kwargs}}
+:param `{{var}}: {{typePlaceholder}}` — {{descriptionPlaceholder}}. Default `{{&default}}`
+{{/kwargs}}
+{{#returns}}
+:return — {{type}}
+{{/returns}}
+{{#exceptions}}
+:raises `{{type}}` — {{descriptionPlaceholder}}
+{{/exceptions}}
+{{#yields}}
+:yield — {{descriptionPlaceholder}}
+{{/yields}}
