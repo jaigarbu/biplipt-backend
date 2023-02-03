@@ -1,20 +1,8 @@
 from datetime import datetime
+
 from django.db import models
-from django.utils.translation import gettext as _
 
-class AccountStatus(models.TextChoices):
-   'Opciones para los estados de las cuentas de usuario'
-   Active = 'active', _('Cuenta activa')
-   Unverified = 'unverified', _('Cuenta no verificada')
-   Suspended = 'suspended', _('Cuenta suspendida')
-   Restricted = 'restricted', _('Cuenta restringida')
-   Block = 'block', _('Cuenta bloqueada')
-
-class GenderOptions(models.TextChoices):
-   'Opciones para el genero de los usuarios'
-   Male = 'M', _('Masculino')
-   Female = 'F', _('Femenino')
-   Other = 'O', _('Otro')
+from app.models.system import AccountStatus, GenderOptions
 
 
 class Users(models.Model):
@@ -36,6 +24,10 @@ class Users(models.Model):
    registeredAt = models.DateTimeField(default=datetime.now())
    updatedAt = models.DateTimeField(null=True)
    ip = models.CharField(max_length=16)
+   
+   class Meta:
+      verbose_name = "user"
+      verbose_name_plural = "users"
 
 
 class UserLogins(models.Model):
@@ -46,4 +38,9 @@ class UserLogins(models.Model):
    ip = models.CharField(max_length=16)
    country = models.CharField(max_length=3)
    aproved = models.BooleanField(default=True)
-   user = models.ForeignKey(Users, on_delete=models.CASCADE, name='userId')
+   user = models.ForeignKey(Users, on_delete=models.CASCADE)
+   
+   class Meta:
+      db_table = 'app_user_logins'
+      verbose_name = "user login"
+      verbose_name_plural = "user logins"
