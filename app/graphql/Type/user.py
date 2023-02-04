@@ -12,9 +12,9 @@ class UserType(DjangoObjectType):
 
 class UserSessionType(graphene.ObjectType):
 	id = graphene.ID()
-	ame = graphene.String()
-	roup = graphene.Int()
-	hoto = graphene.String()
-	sid = graphene.String()
-	dmin = graphene.Boolean()
-	dminHash = graphene.String()
+	name = graphene.String()
+	group = graphene.Int()
+	photo = graphene.String()
+	ssid = graphene.String()
+	admin = graphene.Boolean()
+	adminHash = graphene.String()

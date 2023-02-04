@@ -1,0 +1,18 @@
+{
+  "app": {
+    "live": true,
+    "name": "Biplipt",
+    "message": null,
+    "register": true,
+    "social": true,
+    "facebook": true,
+    "google": true,
+    "apple": true,
+    "version": "0.1.0"
+  },
+  "page": {
+    "title": "Bienvenido a Biplipt | Letras de canciones y más",
+    "keywords": "biplipt, lyrics, letras de canciones, artist, albums, discografias",
+    "description": "biplipt letra de canciones y más cosas que deberias ver OK"
+  }
+}

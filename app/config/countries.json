@@ -1,0 +1,1602 @@
+[
+    {
+        "name": "Afghanistan",
+        "alpha2Code": "AF",
+        "alpha3Code": "AFG",
+        "nativeName": "افغانستان",
+        "callingCode": 93,
+        "domain": ".af"
+    },
+    {
+        "name": "Åland Islands",
+        "alpha2Code": "AX",
+        "alpha3Code": "ALA",
+        "nativeName": "Åland",
+        "callingCode": 358,
+        "domain": ".ax"
+    },
+    {
+        "name": "Albania",
+        "alpha2Code": "AL",
+        "alpha3Code": "ALB",
+        "nativeName": "Shqipëria",
+        "callingCode": 355,
+        "domain": ".al"
+    },
+    {
+        "name": "Algeria",
+        "alpha2Code": "DZ",
+        "alpha3Code": "DZA",
+        "nativeName": "الجزائر",
+        "callingCode": 213,
+        "domain": ".dz"
+    },
+    {
+        "name": "American Samoa",
+        "alpha2Code": "AS",
+        "alpha3Code": "ASM",
+        "nativeName": "American Samoa",
+        "callingCode": 1684,
+        "domain": ".as"
+    },
+    {
+        "name": "Andorra",
+        "alpha2Code": "AD",
+        "alpha3Code": "AND",
+        "nativeName": "Andorra",
+        "callingCode": 376,
+        "domain": ".ad"
+    },
+    {
+        "name": "Angola",
+        "alpha2Code": "AO",
+        "alpha3Code": "AGO",
+        "nativeName": "Angola",
+        "callingCode": 244,
+        "domain": ".ao"
+    },
+    {
+        "name": "Anguilla",
+        "alpha2Code": "AI",
+        "alpha3Code": "AIA",
+        "nativeName": "Anguilla",
+        "callingCode": 1264,
+        "domain": ".ai"
+    },
+    {
+        "name": "Antarctica",
+        "alpha2Code": "AQ",
+        "alpha3Code": "ATA",
+        "nativeName": "Antarctica",
+        "callingCode": 672,
+        "domain": ".aq"
+    },
+    {
+        "name": "Antigua and Barbuda",
+        "alpha2Code": "AG",
+        "alpha3Code": "ATG",
+        "nativeName": "Antigua and Barbuda",
+        "callingCode": 1268,
+        "domain": ".ag"
+    },
+    {
+        "name": "Argentina",
+        "alpha2Code": "AR",
+        "alpha3Code": "ARG",
+        "nativeName": "Argentina",
+        "callingCode": 54,
+        "domain": ".ar"
+    },
+    {
+        "name": "Armenia",
+        "alpha2Code": "AM",
+        "alpha3Code": "ARM",
+        "nativeName": "Հայաստան",
+        "callingCode": 374,
+        "domain": ".am"
+    },
+    {
+        "name": "Aruba",
+        "alpha2Code": "AW",
+        "alpha3Code": "ABW",
+        "nativeName": "Aruba",
+        "callingCode": 297,
+        "domain": ".aw"
+    },
+    {
+        "name": "Australia",
+        "alpha2Code": "AU",
+        "alpha3Code": "AUS",
+        "nativeName": "Australia",
+        "callingCode": 61,
+        "domain": ".au"
+    },
+    {
+        "name": "Austria",
+        "alpha2Code": "AT",
+        "alpha3Code": "AUT",
+        "nativeName": "Österreich",
+        "callingCode": 43,
+        "domain": ".at"
+    },
+    {
+        "name": "Azerbaijan",
+        "alpha2Code": "AZ",
+        "alpha3Code": "AZE",
+        "nativeName": "Azərbaycan",
+        "callingCode": 994,
+        "domain": ".az"
+    },
+    {
+        "name": "Bahamas",
+        "alpha2Code": "BS",
+        "alpha3Code": "BHS",
+        "nativeName": "Bahamas",
+        "callingCode": 1242,
+        "domain": ".bs"
+    },
+    {
+        "name": "Bahrain",
+        "alpha2Code": "BH",
+        "alpha3Code": "BHR",
+        "nativeName": "‏البحرين",
+        "callingCode": 973,
+        "domain": ".bh"
+    },
+    {
+        "name": "Bangladesh",
+        "alpha2Code": "BD",
+        "alpha3Code": "BGD",
+        "nativeName": "Bangladesh",
+        "callingCode": 880,
+        "domain": ".bd"
+    },
+    {
+        "name": "Barbados",
+        "alpha2Code": "BB",
+        "alpha3Code": "BRB",
+        "nativeName": "Barbados",
+        "callingCode": 1246,
+        "domain": ".bb"
+    },
+    {
+        "name": "Belarus",
+        "alpha2Code": "BY",
+        "alpha3Code": "BLR",
+        "nativeName": "Белару́сь",
+        "callingCode": 375,
+        "domain": ".by"
+    },
+    {
+        "name": "Belgium",
+        "alpha2Code": "BE",
+        "alpha3Code": "BEL",
+        "nativeName": "België",
+        "callingCode": 32,
+        "domain": ".be"
+    },
+    {
+        "name": "Belize",
+        "alpha2Code": "BZ",
+        "alpha3Code": "BLZ",
+        "nativeName": "Belize",
+        "callingCode": 501,
+        "domain": ".bz"
+    },
+    {
+        "name": "Benin",
+        "alpha2Code": "BJ",
+        "alpha3Code": "BEN",
+        "nativeName": "Bénin",
+        "callingCode": 229,
+        "domain": ".bj"
+    },
+    {
+        "name": "Bermuda",
+        "alpha2Code": "BM",
+        "alpha3Code": "BMU",
+        "nativeName": "Bermuda",
+        "callingCode": 1441,
+        "domain": ".bm"
+    },
+    {
+        "name": "Bhutan",
+        "alpha2Code": "BT",
+        "alpha3Code": "BTN",
+        "nativeName": "ʼbrug-yul",
+        "callingCode": 975,
+        "domain": ".bt"
+    },
+    {
+        "name": "Bolivia (Plurinational State of)",
+        "alpha2Code": "BO",
+        "alpha3Code": "BOL",
+        "nativeName": "Bolivia",
+        "callingCode": 591,
+        "domain": ".bo"
+    },
+    {
+        "name": "Bonaire, Sint Eustatius and Saba",
+        "alpha2Code": "BQ",
+        "alpha3Code": "BES",
+        "nativeName": "Bonaire",
+        "callingCode": 5997,
+        "domain": ".an"
+    },
+    {
+        "name": "Bosnia and Herzegovina",
+        "alpha2Code": "BA",
+        "alpha3Code": "BIH",
+        "nativeName": "Bosna i Hercegovina",
+        "callingCode": 387,
+        "domain": ".ba"
+    },
+    {
+        "name": "Botswana",
+        "alpha2Code": "BW",
+        "alpha3Code": "BWA",
+        "nativeName": "Botswana",
+        "callingCode": 267,
+        "domain": ".bw"
+    },
+    {
+        "name": "Bouvet Island",
+        "alpha2Code": "BV",
+        "alpha3Code": "BVT",
+        "nativeName": "Bouvetøya",
+        "callingCode": 0,
+        "domain": ".bv"
+    },
+    {
+        "name": "Brazil",
+        "alpha2Code": "BR",
+        "alpha3Code": "BRA",
+        "nativeName": "Brasil",
+        "callingCode": 55,
+        "domain": ".br"
+    },
+    {
+        "name": "British Indian Ocean Territory",
+        "alpha2Code": "IO",
+        "alpha3Code": "IOT",
+        "nativeName": "British Indian Ocean Territory",
+        "callingCode": 246,
+        "domain": ".io"
+    },
+    {
+        "name": "United States Minor Outlying Islands",
+        "alpha2Code": "UM",
+        "alpha3Code": "UMI",
+        "nativeName": "United States Minor Outlying Islands",
+        "callingCode": 0,
+        "domain": ".us"
+    },
+    {
+        "name": "Virgin Islands (British)",
+        "alpha2Code": "VG",
+        "alpha3Code": "VGB",
+        "nativeName": "British Virgin Islands",
+        "callingCode": 1284,
+        "domain": ".vg"
+    },
+    {
+        "name": "Virgin Islands (U.S.)",
+        "alpha2Code": "VI",
+        "alpha3Code": "VIR",
+        "nativeName": "Virgin Islands of the United States",
+        "callingCode": 1,
+        "domain": ".vi"
+    },
+    {
+        "name": "Brunei Darussalam",
+        "alpha2Code": "BN",
+        "alpha3Code": "BRN",
+        "nativeName": "Negara Brunei Darussalam",
+        "callingCode": 673,
+        "domain": ".bn"
+    },
+    {
+        "name": "Bulgaria",
+        "alpha2Code": "BG",
+        "alpha3Code": "BGR",
+        "nativeName": "България",
+        "callingCode": 359,
+        "domain": ".bg"
+    },
+    {
+        "name": "Burkina Faso",
+        "alpha2Code": "BF",
+        "alpha3Code": "BFA",
+        "nativeName": "Burkina Faso",
+        "callingCode": 226,
+        "domain": ".bf"
+    },
+    {
+        "name": "Burundi",
+        "alpha2Code": "BI",
+        "alpha3Code": "BDI",
+        "nativeName": "Burundi",
+        "callingCode": 257,
+        "domain": ".bi"
+    },
+    {
+        "name": "Cambodia",
+        "alpha2Code": "KH",
+        "alpha3Code": "KHM",
+        "nativeName": "Kâmpŭchéa",
+        "callingCode": 855,
+        "domain": ".kh"
+    },
+    {
+        "name": "Cameroon",
+        "alpha2Code": "CM",
+        "alpha3Code": "CMR",
+        "nativeName": "Cameroon",
+        "callingCode": 237,
+        "domain": ".cm"
+    },
+    {
+        "name": "Canada",
+        "alpha2Code": "CA",
+        "alpha3Code": "CAN",
+        "nativeName": "Canada",
+        "callingCode": 1,
+        "domain": ".ca"
+    },
+    {
+        "name": "Cabo Verde",
+        "alpha2Code": "CV",
+        "alpha3Code": "CPV",
+        "nativeName": "Cabo Verde",
+        "callingCode": 238,
+        "domain": ".cv"
+    },
+    {
+        "name": "Cayman Islands",
+        "alpha2Code": "KY",
+        "alpha3Code": "CYM",
+        "nativeName": "Cayman Islands",
+        "callingCode": 1345,
+        "domain": ".ky"
+    },
+    {
+        "name": "Central African Republic",
+        "alpha2Code": "CF",
+        "alpha3Code": "CAF",
+        "nativeName": "Ködörösêse tî Bêafrîka",
+        "callingCode": 236,
+        "domain": ".cf"
+    },
+    {
+        "name": "Chad",
+        "alpha2Code": "TD",
+        "alpha3Code": "TCD",
+        "nativeName": "Tchad",
+        "callingCode": 235,
+        "domain": ".td"
+    },
+    {
+        "name": "Chile",
+        "alpha2Code": "CL",
+        "alpha3Code": "CHL",
+        "nativeName": "Chile",
+        "callingCode": 56,
+        "domain": ".cl"
+    },
+    {
+        "name": "China",
+        "alpha2Code": "CN",
+        "alpha3Code": "CHN",
+        "nativeName": "中国",
+        "callingCode": 86,
+        "domain": ".cn"
+    },
+    {
+        "name": "Christmas Island",
+        "alpha2Code": "CX",
+        "alpha3Code": "CXR",
+        "nativeName": "Christmas Island",
+        "callingCode": 61,
+        "domain": ".cx"
+    },
+    {
+        "name": "Cocos (Keeling) Islands",
+        "alpha2Code": "CC",
+        "alpha3Code": "CCK",
+        "nativeName": "Cocos (Keeling) Islands",
+        "callingCode": 61,
+        "domain": ".cc"
+    },
+    {
+        "name": "Colombia",
+        "alpha2Code": "CO",
+        "alpha3Code": "COL",
+        "nativeName": "Colombia",
+        "callingCode": 57,
+        "domain": ".co"
+    },
+    {
+        "name": "Comoros",
+        "alpha2Code": "KM",
+        "alpha3Code": "COM",
+        "nativeName": "Komori",
+        "callingCode": 269,
+        "domain": ".km"
+    },
+    {
+        "name": "Congo",
+        "alpha2Code": "CG",
+        "alpha3Code": "COG",
+        "nativeName": "République du Congo",
+        "callingCode": 242,
+        "domain": ".cg"
+    },
+    {
+        "name": "Congo (Democratic Republic of the)",
+        "alpha2Code": "CD",
+        "alpha3Code": "COD",
+        "nativeName": "République démocratique du Congo",
+        "callingCode": 243,
+        "domain": ".cd"
+    },
+    {
+        "name": "Cook Islands",
+        "alpha2Code": "CK",
+        "alpha3Code": "COK",
+        "nativeName": "Cook Islands",
+        "callingCode": 682,
+        "domain": ".ck"
+    },
+    {
+        "name": "Costa Rica",
+        "alpha2Code": "CR",
+        "alpha3Code": "CRI",
+        "nativeName": "Costa Rica",
+        "callingCode": 506,
+        "domain": ".cr"
+    },
+    {
+        "name": "Croatia",
+        "alpha2Code": "HR",
+        "alpha3Code": "HRV",
+        "nativeName": "Hrvatska",
+        "callingCode": 385,
+        "domain": ".hr"
+    },
+    {
+        "name": "Cuba",
+        "alpha2Code": "CU",
+        "alpha3Code": "CUB",
+        "nativeName": "Cuba",
+        "callingCode": 53,
+        "domain": ".cu"
+    },
+    {
+        "name": "Curaçao",
+        "alpha2Code": "CW",
+        "alpha3Code": "CUW",
+        "nativeName": "Curaçao",
+        "callingCode": 599,
+        "domain": ".cw"
+    },
+    {
+        "name": "Cyprus",
+        "alpha2Code": "CY",
+        "alpha3Code": "CYP",
+        "nativeName": "Κύπρος",
+        "callingCode": 357,
+        "domain": ".cy"
+    },
+    {
+        "name": "Czech Republic",
+        "alpha2Code": "CZ",
+        "alpha3Code": "CZE",
+        "nativeName": "Česká republika",
+        "callingCode": 420,
+        "domain": ".cz"
+    },
+    {
+        "name": "Denmark",
+        "alpha2Code": "DK",
+        "alpha3Code": "DNK",
+        "nativeName": "Danmark",
+        "callingCode": 45,
+        "domain": ".dk"
+    },
+    {
+        "name": "Djibouti",
+        "alpha2Code": "DJ",
+        "alpha3Code": "DJI",
+        "nativeName": "Djibouti",
+        "callingCode": 253,
+        "domain": ".dj"
+    },
+    {
+        "name": "Dominica",
+        "alpha2Code": "DM",
+        "alpha3Code": "DMA",
+        "nativeName": "Dominica",
+        "callingCode": 1767,
+        "domain": ".dm"
+    },
+    {
+        "name": "Dominican Republic",
+        "alpha2Code": "DO",
+        "alpha3Code": "DOM",
+        "nativeName": "República Dominicana",
+        "callingCode": 1809,
+        "domain": ".do"
+    },
+    {
+        "name": "Ecuador",
+        "alpha2Code": "EC",
+        "alpha3Code": "ECU",
+        "nativeName": "Ecuador",
+        "callingCode": 593,
+        "domain": ".ec"
+    },
+    {
+        "name": "Egypt",
+        "alpha2Code": "EG",
+        "alpha3Code": "EGY",
+        "nativeName": "مصر‎",
+        "callingCode": 20,
+        "domain": ".eg"
+    },
+    {
+        "name": "El Salvador",
+        "alpha2Code": "SV",
+        "alpha3Code": "SLV",
+        "nativeName": "El Salvador",
+        "callingCode": 503,
+        "domain": ".sv"
+    },
+    {
+        "name": "Equatorial Guinea",
+        "alpha2Code": "GQ",
+        "alpha3Code": "GNQ",
+        "nativeName": "Guinea Ecuatorial",
+        "callingCode": 240,
+        "domain": ".gq"
+    },
+    {
+        "name": "Eritrea",
+        "alpha2Code": "ER",
+        "alpha3Code": "ERI",
+        "nativeName": "ኤርትራ",
+        "callingCode": 291,
+        "domain": ".er"
+    },
+    {
+        "name": "Estonia",
+        "alpha2Code": "EE",
+        "alpha3Code": "EST",
+        "nativeName": "Eesti",
+        "callingCode": 372,
+        "domain": ".ee"
+    },
+    {
+        "name": "Ethiopia",
+        "alpha2Code": "ET",
+        "alpha3Code": "ETH",
+        "nativeName": "ኢትዮጵያ",
+        "callingCode": 251,
+        "domain": ".et"
+    },
+    {
+        "name": "Falkland Islands (Malvinas)",
+        "alpha2Code": "FK",
+        "alpha3Code": "FLK",
+        "nativeName": "Falkland Islands",
+        "callingCode": 500,
+        "domain": ".fk"
+    },
+    {
+        "name": "Faroe Islands",
+        "alpha2Code": "FO",
+        "alpha3Code": "FRO",
+        "nativeName": "Føroyar",
+        "callingCode": 298,
+        "domain": ".fo"
+    },
+    {
+        "name": "Fiji",
+        "alpha2Code": "FJ",
+        "alpha3Code": "FJI",
+        "nativeName": "Fiji",
+        "callingCode": 679,
+        "domain": ".fj"
+    },
+    {
+        "name": "Finland",
+        "alpha2Code": "FI",
+        "alpha3Code": "FIN",
+        "nativeName": "Suomi",
+        "callingCode": 358,
+        "domain": ".fi"
+    },
+    {
+        "name": "France",
+        "alpha2Code": "FR",
+        "alpha3Code": "FRA",
+        "nativeName": "France",
+        "callingCode": 33,
+        "domain": ".fr"
+    },
+    {
+        "name": "French Guiana",
+        "alpha2Code": "GF",
+        "alpha3Code": "GUF",
+        "nativeName": "Guyane française",
+        "callingCode": 594,
+        "domain": ".gf"
+    },
+    {
+        "name": "French Polynesia",
+        "alpha2Code": "PF",
+        "alpha3Code": "PYF",
+        "nativeName": "Polynésie française",
+        "callingCode": 689,
+        "domain": ".pf"
+    },
+    {
+        "name": "French Southern Territories",
+        "alpha2Code": "TF",
+        "alpha3Code": "ATF",
+        "nativeName": "Territoire des Terres australes et antarctiques françaises",
+        "callingCode": 0,
+        "domain": ".tf"
+    },
+    {
+        "name": "Gabon",
+        "alpha2Code": "GA",
+        "alpha3Code": "GAB",
+        "nativeName": "Gabon",
+        "callingCode": 241,
+        "domain": ".ga"
+    },
+    {
+        "name": "Gambia",
+        "alpha2Code": "GM",
+        "alpha3Code": "GMB",
+        "nativeName": "Gambia",
+        "callingCode": 220,
+        "domain": ".gm"
+    },
+    {
+        "name": "Georgia",
+        "alpha2Code": "GE",
+        "alpha3Code": "GEO",
+        "nativeName": "საქართველო",
+        "callingCode": 995,
+        "domain": ".ge"
+    },
+    {
+        "name": "Germany",
+        "alpha2Code": "DE",
+        "alpha3Code": "DEU",
+        "nativeName": "Deutschland",
+        "callingCode": 49,
+        "domain": ".de"
+    },
+    {
+        "name": "Ghana",
+        "alpha2Code": "GH",
+        "alpha3Code": "GHA",
+        "nativeName": "Ghana",
+        "callingCode": 233,
+        "domain": ".gh"
+    },
+    {
+        "name": "Gibraltar",
+        "alpha2Code": "GI",
+        "alpha3Code": "GIB",
+        "nativeName": "Gibraltar",
+        "callingCode": 350,
+        "domain": ".gi"
+    },
+    {
+        "name": "Greece",
+        "alpha2Code": "GR",
+        "alpha3Code": "GRC",
+        "nativeName": "Ελλάδα",
+        "callingCode": 30,
+        "domain": ".gr"
+    },
+    {
+        "name": "Greenland",
+        "alpha2Code": "GL",
+        "alpha3Code": "GRL",
+        "nativeName": "Kalaallit Nunaat",
+        "callingCode": 299,
+        "domain": ".gl"
+    },
+    {
+        "name": "Grenada",
+        "alpha2Code": "GD",
+        "alpha3Code": "GRD",
+        "nativeName": "Grenada",
+        "callingCode": 1473,
+        "domain": ".gd"
+    },
+    {
+        "name": "Guadeloupe",
+        "alpha2Code": "GP",
+        "alpha3Code": "GLP",
+        "nativeName": "Guadeloupe",
+        "callingCode": 590,
+        "domain": ".gp"
+    },
+    {
+        "name": "Guam",
+        "alpha2Code": "GU",
+        "alpha3Code": "GUM",
+        "nativeName": "Guam",
+        "callingCode": 1671,
+        "domain": ".gu"
+    },
+    {
+        "name": "Guatemala",
+        "alpha2Code": "GT",
+        "alpha3Code": "GTM",
+        "nativeName": "Guatemala",
+        "callingCode": 502,
+        "domain": ".gt"
+    },
+    {
+        "name": "Guernsey",
+        "alpha2Code": "GG",
+        "alpha3Code": "GGY",
+        "nativeName": "Guernsey",
+        "callingCode": 44,
+        "domain": ".gg"
+    },
+    {
+        "name": "Guinea",
+        "alpha2Code": "GN",
+        "alpha3Code": "GIN",
+        "nativeName": "Guinée",
+        "callingCode": 224,
+        "domain": ".gn"
+    },
+    {
+        "name": "Guinea-Bissau",
+        "alpha2Code": "GW",
+        "alpha3Code": "GNB",
+        "nativeName": "Guiné-Bissau",
+        "callingCode": 245,
+        "domain": ".gw"
+    },
+    {
+        "name": "Guyana",
+        "alpha2Code": "GY",
+        "alpha3Code": "GUY",
+        "nativeName": "Guyana",
+        "callingCode": 592,
+        "domain": ".gy"
+    },
+    {
+        "name": "Haiti",
+        "alpha2Code": "HT",
+        "alpha3Code": "HTI",
+        "nativeName": "Haïti",
+        "callingCode": 509,
+        "domain": ".ht"
+    },
+    {
+        "name": "Heard Island and McDonald Islands",
+        "alpha2Code": "HM",
+        "alpha3Code": "HMD",
+        "nativeName": "Heard Island and McDonald Islands",
+        "callingCode": 0,
+        "domain": ".hm"
+    },
+    {
+        "name": "Holy See",
+        "alpha2Code": "VA",
+        "alpha3Code": "VAT",
+        "nativeName": "Sancta Sedes",
+        "callingCode": 379,
+        "domain": ".va"
+    },
+    {
+        "name": "Honduras",
+        "alpha2Code": "HN",
+        "alpha3Code": "HND",
+        "nativeName": "Honduras",
+        "callingCode": 504,
+        "domain": ".hn"
+    },
+    {
+        "name": "Hong Kong",
+        "alpha2Code": "HK",
+        "alpha3Code": "HKG",
+        "nativeName": "香港",
+        "callingCode": 852,
+        "domain": ".hk"
+    },
+    {
+        "name": "Hungary",
+        "alpha2Code": "HU",
+        "alpha3Code": "HUN",
+        "nativeName": "Magyarország",
+        "callingCode": 36,
+        "domain": ".hu"
+    },
+    {
+        "name": "Iceland",
+        "alpha2Code": "IS",
+        "alpha3Code": "ISL",
+        "nativeName": "Ísland",
+        "callingCode": 354,
+        "domain": ".is"
+    },
+    {
+        "name": "India",
+        "alpha2Code": "IN",
+        "alpha3Code": "IND",
+        "nativeName": "भारत",
+        "callingCode": 91,
+        "domain": ".in"
+    },
+    {
+        "name": "Indonesia",
+        "alpha2Code": "ID",
+        "alpha3Code": "IDN",
+        "nativeName": "Indonesia",
+        "callingCode": 62,
+        "domain": ".id"
+    },
+    {
+        "name": "Côte d'Ivoire",
+        "alpha2Code": "CI",
+        "alpha3Code": "CIV",
+        "nativeName": "Côte d'Ivoire",
+        "callingCode": 225,
+        "domain": ".ci"
+    },
+    {
+        "name": "Iran (Islamic Republic of)",
+        "alpha2Code": "IR",
+        "alpha3Code": "IRN",
+        "nativeName": "ایران",
+        "callingCode": 98,
+        "domain": ".ir"
+    },
+    {
+        "name": "Iraq",
+        "alpha2Code": "IQ",
+        "alpha3Code": "IRQ",
+        "nativeName": "العراق",
+        "callingCode": 964,
+        "domain": ".iq"
+    },
+    {
+        "name": "Ireland",
+        "alpha2Code": "IE",
+        "alpha3Code": "IRL",
+        "nativeName": "Éire",
+        "callingCode": 353,
+        "domain": ".ie"
+    },
+    {
+        "name": "Isle of Man",
+        "alpha2Code": "IM",
+        "alpha3Code": "IMN",
+        "nativeName": "Isle of Man",
+        "callingCode": 44,
+        "domain": ".im"
+    },
+    {
+        "name": "Israel",
+        "alpha2Code": "IL",
+        "alpha3Code": "ISR",
+        "nativeName": "יִשְׂרָאֵל",
+        "callingCode": 972,
+        "domain": ".il"
+    },
+    {
+        "name": "Italy",
+        "alpha2Code": "IT",
+        "alpha3Code": "ITA",
+        "nativeName": "Italia",
+        "callingCode": 39,
+        "domain": ".it"
+    },
+    {
+        "name": "Jamaica",
+        "alpha2Code": "JM",
+        "alpha3Code": "JAM",
+        "nativeName": "Jamaica",
+        "callingCode": 1876,
+        "domain": ".jm"
+    },
+    {
+        "name": "Japan",
+        "alpha2Code": "JP",
+        "alpha3Code": "JPN",
+        "nativeName": "日本",
+        "callingCode": 81,
+        "domain": ".jp"
+    },
+    {
+        "name": "Jersey",
+        "alpha2Code": "JE",
+        "alpha3Code": "JEY",
+        "nativeName": "Jersey",
+        "callingCode": 44,
+        "domain": ".je"
+    },
+    {
+        "name": "Jordan",
+        "alpha2Code": "JO",
+        "alpha3Code": "JOR",
+        "nativeName": "الأردن",
+        "callingCode": 962,
+        "domain": ".jo"
+    },
+    {
+        "name": "Kazakhstan",
+        "alpha2Code": "KZ",
+        "alpha3Code": "KAZ",
+        "nativeName": "Қазақстан",
+        "callingCode": 76,
+        "domain": ".kz"
+    },
+    {
+        "name": "Kenya",
+        "alpha2Code": "KE",
+        "alpha3Code": "KEN",
+        "nativeName": "Kenya",
+        "callingCode": 254,
+        "domain": ".ke"
+    },
+    {
+        "name": "Kiribati",
+        "alpha2Code": "KI",
+        "alpha3Code": "KIR",
+        "nativeName": "Kiribati",
+        "callingCode": 686,
+        "domain": ".ki"
+    },
+    {
+        "name": "Kuwait",
+        "alpha2Code": "KW",
+        "alpha3Code": "KWT",
+        "nativeName": "الكويت",
+        "callingCode": 965,
+        "domain": ".kw"
+    },
+    {
+        "name": "Kyrgyzstan",
+        "alpha2Code": "KG",
+        "alpha3Code": "KGZ",
+        "nativeName": "Кыргызстан",
+        "callingCode": 996,
+        "domain": ".kg"
+    },
+    {
+        "name": "Lao People's Democratic Republic",
+        "alpha2Code": "LA",
+        "alpha3Code": "LAO",
+        "nativeName": "ສປປລາວ",
+        "callingCode": 856,
+        "domain": ".la"
+    },
+    {
+        "name": "Latvia",
+        "alpha2Code": "LV",
+        "alpha3Code": "LVA",
+        "nativeName": "Latvija",
+        "callingCode": 371,
+        "domain": ".lv"
+    },
+    {
+        "name": "Lebanon",
+        "alpha2Code": "LB",
+        "alpha3Code": "LBN",
+        "nativeName": "لبنان",
+        "callingCode": 961,
+        "domain": ".lb"
+    },
+    {
+        "name": "Lesotho",
+        "alpha2Code": "LS",
+        "alpha3Code": "LSO",
+        "nativeName": "Lesotho",
+        "callingCode": 266,
+        "domain": ".ls"
+    },
+    {
+        "name": "Liberia",
+        "alpha2Code": "LR",
+        "alpha3Code": "LBR",
+        "nativeName": "Liberia",
+        "callingCode": 231,
+        "domain": ".lr"
+    },
+    {
+        "name": "Libya",
+        "alpha2Code": "LY",
+        "alpha3Code": "LBY",
+        "nativeName": "‏ليبيا",
+        "callingCode": 218,
+        "domain": ".ly"
+    },
+    {
+        "name": "Liechtenstein",
+        "alpha2Code": "LI",
+        "alpha3Code": "LIE",
+        "nativeName": "Liechtenstein",
+        "callingCode": 423,
+        "domain": ".li"
+    },
+    {
+        "name": "Lithuania",
+        "alpha2Code": "LT",
+        "alpha3Code": "LTU",
+        "nativeName": "Lietuva",
+        "callingCode": 370,
+        "domain": ".lt"
+    },
+    {
+        "name": "Luxembourg",
+        "alpha2Code": "LU",
+        "alpha3Code": "LUX",
+        "nativeName": "Luxembourg",
+        "callingCode": 352,
+        "domain": ".lu"
+    },
+    {
+        "name": "Macao",
+        "alpha2Code": "MO",
+        "alpha3Code": "MAC",
+        "nativeName": "澳門",
+        "callingCode": 853,
+        "domain": ".mo"
+    },
+    {
+        "name": "Macedonia (the former Yugoslav Republic of)",
+        "alpha2Code": "MK",
+        "alpha3Code": "MKD",
+        "nativeName": "Македонија",
+        "callingCode": 389,
+        "domain": ".mk"
+    },
+    {
+        "name": "Madagascar",
+        "alpha2Code": "MG",
+        "alpha3Code": "MDG",
+        "nativeName": "Madagasikara",
+        "callingCode": 261,
+        "domain": ".mg"
+    },
+    {
+        "name": "Malawi",
+        "alpha2Code": "MW",
+        "alpha3Code": "MWI",
+        "nativeName": "Malawi",
+        "callingCode": 265,
+        "domain": ".mw"
+    },
+    {
+        "name": "Malaysia",
+        "alpha2Code": "MY",
+        "alpha3Code": "MYS",
+        "nativeName": "Malaysia",
+        "callingCode": 60,
+        "domain": ".my"
+    },
+    {
+        "name": "Maldives",
+        "alpha2Code": "MV",
+        "alpha3Code": "MDV",
+        "nativeName": "Maldives",
+        "callingCode": 960,
+        "domain": ".mv"
+    },
+    {
+        "name": "Mali",
+        "alpha2Code": "ML",
+        "alpha3Code": "MLI",
+        "nativeName": "Mali",
+        "callingCode": 223,
+        "domain": ".ml"
+    },
+    {
+        "name": "Malta",
+        "alpha2Code": "MT",
+        "alpha3Code": "MLT",
+        "nativeName": "Malta",
+        "callingCode": 356,
+        "domain": ".mt"
+    },
+    {
+        "name": "Marshall Islands",
+        "alpha2Code": "MH",
+        "alpha3Code": "MHL",
+        "nativeName": "M̧ajeļ",
+        "callingCode": 692,
+        "domain": ".mh"
+    },
+    {
+        "name": "Martinique",
+        "alpha2Code": "MQ",
+        "alpha3Code": "MTQ",
+        "nativeName": "Martinique",
+        "callingCode": 596,
+        "domain": ".mq"
+    },
+    {
+        "name": "Mauritania",
+        "alpha2Code": "MR",
+        "alpha3Code": "MRT",
+        "nativeName": "موريتانيا",
+        "callingCode": 222,
+        "domain": ".mr"
+    },
+    {
+        "name": "Mauritius",
+        "alpha2Code": "MU",
+        "alpha3Code": "MUS",
+        "nativeName": "Maurice",
+        "callingCode": 230,
+        "domain": ".mu"
+    },
+    {
+        "name": "Mayotte",
+        "alpha2Code": "YT",
+        "alpha3Code": "MYT",
+        "nativeName": "Mayotte",
+        "callingCode": 262,
+        "domain": ".yt"
+    },
+    {
+        "name": "Mexico",
+        "alpha2Code": "MX",
+        "alpha3Code": "MEX",
+        "nativeName": "México",
+        "callingCode": 52,
+        "domain": ".mx"
+    },
+    {
+        "name": "Micronesia (Federated States of)",
+        "alpha2Code": "FM",
+        "alpha3Code": "FSM",
+        "nativeName": "Micronesia",
+        "callingCode": 691,
+        "domain": ".fm"
+    },
+    {
+        "name": "Moldova (Republic of)",
+        "alpha2Code": "MD",
+        "alpha3Code": "MDA",
+        "nativeName": "Moldova",
+        "callingCode": 373,
+        "domain": ".md"
+    },
+    {
+        "name": "Monaco",
+        "alpha2Code": "MC",
+        "alpha3Code": "MCO",
+        "nativeName": "Monaco",
+        "callingCode": 377,
+        "domain": ".mc"
+    },
+    {
+        "name": "Mongolia",
+        "alpha2Code": "MN",
+        "alpha3Code": "MNG",
+        "nativeName": "Монгол улс",
+        "callingCode": 976,
+        "domain": ".mn"
+    },
+    {
+        "name": "Montenegro",
+        "alpha2Code": "ME",
+        "alpha3Code": "MNE",
+        "nativeName": "Црна Гора",
+        "callingCode": 382,
+        "domain": ".me"
+    },
+    {
+        "name": "Montserrat",
+        "alpha2Code": "MS",
+        "alpha3Code": "MSR",
+        "nativeName": "Montserrat",
+        "callingCode": 1664,
+        "domain": ".ms"
+    },
+    {
+        "name": "Morocco",
+        "alpha2Code": "MA",
+        "alpha3Code": "MAR",
+        "nativeName": "المغرب",
+        "callingCode": 212,
+        "domain": ".ma"
+    },
+    {
+        "name": "Mozambique",
+        "alpha2Code": "MZ",
+        "alpha3Code": "MOZ",
+        "nativeName": "Moçambique",
+        "callingCode": 258,
+        "domain": ".mz"
+    },
+    {
+        "name": "Myanmar",
+        "alpha2Code": "MM",
+        "alpha3Code": "MMR",
+        "nativeName": "Myanma",
+        "callingCode": 95,
+        "domain": ".mm"
+    },
+    {
+        "name": "Namibia",
+        "alpha2Code": "NA",
+        "alpha3Code": "NAM",
+        "nativeName": "Namibia",
+        "callingCode": 264,
+        "domain": ".na"
+    },
+    {
+        "name": "Nauru",
+        "alpha2Code": "NR",
+        "alpha3Code": "NRU",
+        "nativeName": "Nauru",
+        "callingCode": 674,
+        "domain": ".nr"
+    },
+    {
+        "name": "Nepal",
+        "alpha2Code": "NP",
+        "alpha3Code": "NPL",
+        "nativeName": "नेपाल",
+        "callingCode": 977,
+        "domain": ".np"
+    },
+    {
+        "name": "Netherlands",
+        "alpha2Code": "NL",
+        "alpha3Code": "NLD",
+        "nativeName": "Nederland",
+        "callingCode": 31,
+        "domain": ".nl"
+    },
+    {
+        "name": "New Caledonia",
+        "alpha2Code": "NC",
+        "alpha3Code": "NCL",
+        "nativeName": "Nouvelle-Calédonie",
+        "callingCode": 687,
+        "domain": ".nc"
+    },
+    {
+        "name": "New Zealand",
+        "alpha2Code": "NZ",
+        "alpha3Code": "NZL",
+        "nativeName": "New Zealand",
+        "callingCode": 64,
+        "domain": ".nz"
+    },
+    {
+        "name": "Nicaragua",
+        "alpha2Code": "NI",
+        "alpha3Code": "NIC",
+        "nativeName": "Nicaragua",
+        "callingCode": 505,
+        "domain": ".ni"
+    },
+    {
+        "name": "Niger",
+        "alpha2Code": "NE",
+        "alpha3Code": "NER",
+        "nativeName": "Niger",
+        "callingCode": 227,
+        "domain": ".ne"
+    },
+    {
+        "name": "Nigeria",
+        "alpha2Code": "NG",
+        "alpha3Code": "NGA",
+        "nativeName": "Nigeria",
+        "callingCode": 234,
+        "domain": ".ng"
+    },
+    {
+        "name": "Niue",
+        "alpha2Code": "NU",
+        "alpha3Code": "NIU",
+        "nativeName": "Niuē",
+        "callingCode": 683,
+        "domain": ".nu"
+    },
+    {
+        "name": "Norfolk Island",
+        "alpha2Code": "NF",
+        "alpha3Code": "NFK",
+        "nativeName": "Norfolk Island",
+        "callingCode": 672,
+        "domain": ".nf"
+    },
+    {
+        "name": "Korea (Democratic People's Republic of)",
+        "alpha2Code": "KP",
+        "alpha3Code": "PRK",
+        "nativeName": "북한",
+        "callingCode": 850,
+        "domain": ".kp"
+    },
+    {
+        "name": "Northern Mariana Islands",
+        "alpha2Code": "MP",
+        "alpha3Code": "MNP",
+        "nativeName": "Northern Mariana Islands",
+        "callingCode": 1670,
+        "domain": ".mp"
+    },
+    {
+        "name": "Norway",
+        "alpha2Code": "NO",
+        "alpha3Code": "NOR",
+        "nativeName": "Norge",
+        "callingCode": 47,
+        "domain": ".no"
+    },
+    {
+        "name": "Oman",
+        "alpha2Code": "OM",
+        "alpha3Code": "OMN",
+        "nativeName": "عمان",
+        "callingCode": 968,
+        "domain": ".om"
+    },
+    {
+        "name": "Pakistan",
+        "alpha2Code": "PK",
+        "alpha3Code": "PAK",
+        "nativeName": "Pakistan",
+        "callingCode": 92,
+        "domain": ".pk"
+    },
+    {
+        "name": "Palau",
+        "alpha2Code": "PW",
+        "alpha3Code": "PLW",
+        "nativeName": "Palau",
+        "callingCode": 680,
+        "domain": ".pw"
+    },
+    {
+        "name": "Palestine, State of",
+        "alpha2Code": "PS",
+        "alpha3Code": "PSE",
+        "nativeName": "فلسطين",
+        "callingCode": 970,
+        "domain": ".ps"
+    },
+    {
+        "name": "Panama",
+        "alpha2Code": "PA",
+        "alpha3Code": "PAN",
+        "nativeName": "Panamá",
+        "callingCode": 507,
+        "domain": ".pa"
+    },
+    {
+        "name": "Papua New Guinea",
+        "alpha2Code": "PG",
+        "alpha3Code": "PNG",
+        "nativeName": "Papua Niugini",
+        "callingCode": 675,
+        "domain": ".pg"
+    },
+    {
+        "name": "Paraguay",
+        "alpha2Code": "PY",
+        "alpha3Code": "PRY",
+        "nativeName": "Paraguay",
+        "callingCode": 595,
+        "domain": ".py"
+    },
+    {
+        "name": "Peru",
+        "alpha2Code": "PE",
+        "alpha3Code": "PER",
+        "nativeName": "Perú",
+        "callingCode": 51,
+        "domain": ".pe"
+    },
+    {
+        "name": "Philippines",
+        "alpha2Code": "PH",
+        "alpha3Code": "PHL",
+        "nativeName": "Pilipinas",
+        "callingCode": 63,
+        "domain": ".ph"
+    },
+    {
+        "name": "Pitcairn",
+        "alpha2Code": "PN",
+        "alpha3Code": "PCN",
+        "nativeName": "Pitcairn Islands",
+        "callingCode": 64,
+        "domain": ".pn"
+    },
+    {
+        "name": "Poland",
+        "alpha2Code": "PL",
+        "alpha3Code": "POL",
+        "nativeName": "Polska",
+        "callingCode": 48,
+        "domain": ".pl"
+    },
+    {
+        "name": "Portugal",
+        "alpha2Code": "PT",
+        "alpha3Code": "PRT",
+        "nativeName": "Portugal",
+        "callingCode": 351,
+        "domain": ".pt"
+    },
+    {
+        "name": "Puerto Rico",
+        "alpha2Code": "PR",
+        "alpha3Code": "PRI",
+        "nativeName": "Puerto Rico",
+        "callingCode": 1787,
+        "domain": ".pr"
+    },
+    {
+        "name": "Qatar",
+        "alpha2Code": "QA",
+        "alpha3Code": "QAT",
+        "nativeName": "قطر",
+        "callingCode": 974,
+        "domain": ".qa"
+    },
+    {
+        "name": "Republic of Kosovo",
+        "alpha2Code": "XK",
+        "alpha3Code": "KOS",
+        "nativeName": "Republika e Kosovës",
+        "callingCode": 383,
+        "domain": ""
+    },
+    {
+        "name": "Réunion",
+        "alpha2Code": "RE",
+        "alpha3Code": "REU",
+        "nativeName": "La Réunion",
+        "callingCode": 262,
+        "domain": ".re"
+    },
+    {
+        "name": "Romania",
+        "alpha2Code": "RO",
+        "alpha3Code": "ROU",
+        "nativeName": "România",
+        "callingCode": 40,
+        "domain": ".ro"
+    },
+    {
+        "name": "Russian Federation",
+        "alpha2Code": "RU",
+        "alpha3Code": "RUS",
+        "nativeName": "Россия",
+        "callingCode": 7,
+        "domain": ".ru"
+    },
+    {
+        "name": "Rwanda",
+        "alpha2Code": "RW",
+        "alpha3Code": "RWA",
+        "nativeName": "Rwanda",
+        "callingCode": 250,
+        "domain": ".rw"
+    },
+    {
+        "name": "Saint Barthélemy",
+        "alpha2Code": "BL",
+        "alpha3Code": "BLM",
+        "nativeName": "Saint-Barthélemy",
+        "callingCode": 590,
+        "domain": ".bl"
+    },
+    {
+        "name": "Saint Helena, Ascension and Tristan da Cunha",
+        "alpha2Code": "SH",
+        "alpha3Code": "SHN",
+        "nativeName": "Saint Helena",
+        "callingCode": 290,
+        "domain": ".sh"
+    },
+    {
+        "name": "Saint Kitts and Nevis",
+        "alpha2Code": "KN",
+        "alpha3Code": "KNA",
+        "nativeName": "Saint Kitts and Nevis",
+        "callingCode": 1869,
+        "domain": ".kn"
+    },
+    {
+        "name": "Saint Lucia",
+        "alpha2Code": "LC",
+        "alpha3Code": "LCA",
+        "nativeName": "Saint Lucia",
+        "callingCode": 1758,
+        "domain": ".lc"
+    },
+    {
+        "name": "Saint Martin (French part)",
+        "alpha2Code": "MF",
+        "alpha3Code": "MAF",
+        "nativeName": "Saint-Martin",
+        "callingCode": 590,
+        "domain": ".mf"
+    },
+    {
+        "name": "Saint Pierre and Miquelon",
+        "alpha2Code": "PM",
+        "alpha3Code": "SPM",
+        "nativeName": "Saint-Pierre-et-Miquelon",
+        "callingCode": 508,
+        "domain": ".pm"
+    },
+    {
+        "name": "Saint Vincent and the Grenadines",
+        "alpha2Code": "VC",
+        "alpha3Code": "VCT",
+        "nativeName": "Saint Vincent and the Grenadines",
+        "callingCode": 1784,
+        "domain": ".vc"
+    },
+    {
+        "name": "Samoa",
+        "alpha2Code": "WS",
+        "alpha3Code": "WSM",
+        "nativeName": "Samoa",
+        "callingCode": 685,
+        "domain": ".ws"
+    },
+    {
+        "name": "San Marino",
+        "alpha2Code": "SM",
+        "alpha3Code": "SMR",
+        "nativeName": "San Marino",
+        "callingCode": 378,
+        "domain": ".sm"
+    },
+    {
+        "name": "Sao Tome and Principe",
+        "alpha2Code": "ST",
+        "alpha3Code": "STP",
+        "nativeName": "São Tomé e Príncipe",
+        "callingCode": 239,
+        "domain": ".st"
+    },
+    {
+        "name": "Saudi Arabia",
+        "alpha2Code": "SA",
+        "alpha3Code": "SAU",
+        "nativeName": "العربية السعودية",
+        "callingCode": 966,
+        "domain": ".sa"
+    },
+    {
+        "name": "Senegal",
+        "alpha2Code": "SN",
+        "alpha3Code": "SEN",
+        "nativeName": "Sénégal",
+        "callingCode": 221,
+        "domain": ".sn"
+    },
+    {
+        "name": "Serbia",
+        "alpha2Code": "RS",
+        "alpha3Code": "SRB",
+        "nativeName": "Србија",
+        "callingCode": 381,
+        "domain": ".rs"
+    }
+]

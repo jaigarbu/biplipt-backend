@@ -3,10 +3,12 @@ import graphene
 from app.graphql.Mutation.genre import CreateGenre
 from app.graphql.Mutation.user import CreateUser, DeleteUser, LoginUser
 from app.graphql.Query.genre import GenreQuery
+from app.graphql.Query.system import SystemQuery
 from app.graphql.Query.user import UserQuery
 
 
 class Query(
+   SystemQuery,
    UserQuery,
    GenreQuery,
    graphene.ObjectType

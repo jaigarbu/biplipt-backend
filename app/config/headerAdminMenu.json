@@ -1,0 +1,61 @@
+{
+    "group": 1,
+    "title": "Administrador",
+    "links": [
+        {
+            "title": "Dashboard",
+            "source": "/dashboard",
+            "icon": "bi-columns-gap",
+            "counter": null
+        },
+        {
+            "title": "Notificaciones",
+            "source": "/dashboard/notifications",
+            "icon": "bi-bell",
+            "counter": "NOT"
+        },
+        {
+            "title": "Mensajes",
+            "source": "/dashboard/messages",
+            "icon": "bi-envelope",
+            "counter": "MES"
+        },
+        {
+            "title": "Añadir una letra",
+            "source": "/dashboard/add/lyric",
+            "icon": "bi-music-note-beamed",
+            "counter": null
+        },
+        {
+            "title": "Añadir un artista",
+            "source": "/dashboard/add/artist",
+            "icon": "bi-person-plus",
+            "counter": null
+        },
+        {
+            "title": "Añadir un álbum",
+            "source": "/dashboard/add/album",
+            "icon": "bif-books",
+            "counter": null
+        },
+        {
+            "title": "Añadir un género",
+            "source": "/dashboard/add/genre",
+            "icon": "bi-folder-plus",
+            "counter": null
+        },
+        {
+            "title": "Letras por revisar",
+            "source": "/dashboard/pending/lyric",
+            "icon": "bi-music-note-list",
+            "counter": "LPA"
+        },
+        {
+            "title": "Administrar usuarios",
+            "source": "/dashboard/users",
+            "icon": "bi-people",
+            "counter": null
+        }
+    ],
+    "version": "0.1.0"
+}

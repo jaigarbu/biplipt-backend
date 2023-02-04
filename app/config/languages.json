@@ -1,0 +1,33 @@
+[
+  ["es-us", "en-us", "fr-fr", "ja-jp", "pt-br", "de-de", "ch-cn"],
+  [
+    {
+      "name": "Español",
+      "locale": "es-us"
+    },
+    {
+      "name": "English",
+      "locale": "en-us"
+    },
+    {
+      "name": "Français",
+      "locale": "fr-fr"
+    },
+    {
+      "name": "⽇本語",
+      "locale": "ja-jp"
+    },
+    {
+      "name": "Português",
+      "locale": "pt-br"
+    },
+    {
+      "name": "Deutsch",
+      "locale": "de-de"
+    },
+    {
+      "name": "中文(简体)",
+      "locale": "ch-cn"
+    }
+  ]
+]
