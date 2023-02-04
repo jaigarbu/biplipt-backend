@@ -11,6 +11,7 @@ colorama==0.4.6
 cryptography==38.0.1
 distlib==0.3.6
 Django==4.1.4
+django-cors-headers==3.13.0
 filelock==3.8.2
 graphene==3.2.1
 graphene-django==3.0.0
