@@ -1,41 +1,46 @@
-from datetime import datetime
-
 from django.db import models
 
-from app.models.admins import Admins
-from app.models.lyrics import Lyrics
+from app.models.admins import Admin
+from app.models.lyrics import Lyric
 from app.models.system import VisibilityOptions
-from app.models.users import Users
+from app.models.users import User
 
 
-class Translates(models.Model):
+class Translate(models.Model):
    'Modelo de las traducciones'
    id = models.BigAutoField(primary_key=True)
    visibility = models.CharField(max_length=10, choices=VisibilityOptions.choices, default=VisibilityOptions.Public)
-   lyric = models.ForeignKey(Lyrics, on_delete=models.CASCADE)
+   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
    language = models.CharField(max_length=10)
    name = models.CharField(max_length=80)
    lyric = models.TextField()
-   sent = models.ForeignKey(Users, on_delete=models.SET_NULL, null=True, default=None)
-   approvedBy = models.ForeignKey(Admins, on_delete=models.SET_NULL, null=True)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
+   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
+   approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="approvedBy")
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
-      verbose_name = "translates"
+      db_table = "app_translates"
+      verbose_name = "translate"
       verbose_name_plural = "translates"
+   
+   def __str__(self):
+      return self.name
 
 
-class TranslatesModified(models.Model):
+class TranslateModifications(models.Model):
    'Modelo de las modificaciones de las traducciones'
-   translate = models.ForeignKey(Translates, on_delete=models.CASCADE)
-   approvedBy = models.ForeignKey(Admins, on_delete=models.SET_NULL, null=True)
-   sent = models.ForeignKey(Users, on_delete=models.SET_NULL, null=True, default=None)
-   times = models.IntegerField(default=1)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
+   translateId = models.ForeignKey(Translate, on_delete=models.CASCADE, db_column="translateId")
+   approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="approvedBy")
+   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
+   times = models.PositiveSmallIntegerField(default=1)
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
-      db_table = "app_translates_modified"
-      verbose_name = "trasnlates modified"
-      verbose_name_plural = "trasnlates modified"
+      db_table = "app_translate_modifications"
+      verbose_name = "trasnlate modifications"
+      verbose_name_plural = "trasnlate modifications"
+   
+   def __str__(self):
+      return f"translate modified {self.translateId}"

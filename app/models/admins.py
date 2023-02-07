@@ -1,9 +1,7 @@
-from datetime import datetime
-
 from django.db import models
 from django.utils.translation import gettext as _
 
-from app.models.users import AccountStatus, GenderOptions
+from app.models.system import AccountStatus, GenderOptions
 
 
 class GroupAdmins(models.TextChoices):
@@ -19,7 +17,7 @@ class NodeTypes(models.TextChoices):
    arits = 'artist', _('Artista')
 
 
-class Admins(models.Model):
+class Admin(models.Model):
    'Modelo de los administradores'
    id = models.BigAutoField(primary_key=True)
    group = models.CharField(max_length=1, choices=GroupAdmins.choices)
@@ -38,38 +36,48 @@ class Admins(models.Model):
    lastSeen = models.DateTimeField(null=True, default=None)
    ip = models.CharField(max_length=15)
    activationKey = models.CharField(max_length=400, null=True, default=None)
-   registeredAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
+   registeredAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
+      db_table = "app_admins"
       verbose_name = "admin"
       verbose_name_plural = "admins"
+   
+   def __str__(self):
+      return self.name
 
 
 class AdminsLogin(models.Model):
-   'Modelo de resgistro de sessiones de los administradore'
+   'Modelo de resgistro de sessiones de los administradores'
    ssid = models.CharField(max_length=255)
    userAgent = models.CharField(max_length=300)
-   loginAt = models.DateTimeField(default=datetime.now())
+   loginAt = models.DateTimeField(auto_now_add=True)
    ip = models.CharField(max_length=16)
    country = models.CharField(max_length=3)
    aproved = models.BooleanField(default=True)
-   admin = models.ForeignKey(Admins, on_delete=models.CASCADE)
+   adminId = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId")
 
    class Meta:
-      db_table = 'app_admin_logins'
-      verbose_name = "admin login"
-      verbose_name_plural = "admin logins"
+      db_table = 'app_admins_login'
+      verbose_name = "admins login"
+      verbose_name_plural = "admins login"
+   
+   def __str__(self):
+      return self.ssid
 
 
 class ContentMarks(models.Model):
    'Modelo de registro de marcadores de los adminitradores'
    nodeId = models.CharField(max_length=20, db_index=True)
    nodeType = models.CharField(max_length=20, choices=NodeTypes.choices)
-   addedAt = models.DateTimeField(default=datetime.now())
-   admin = models.ForeignKey(Admins, on_delete=models.CASCADE)
+   addedAt = models.DateTimeField(auto_now_add=True)
+   adminId = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId")
 
    class Meta:
-      db_table = 'app_admin_content_marks'
-      verbose_name = "admin mark"
-      verbose_name_plural = "admin marks"
+      db_table = 'app_admins_content_mark'
+      verbose_name = "admins mark"
+      verbose_name_plural = "admins mark"
+   
+   def __str__(self):
+      return f"{self.nodeType} - {self.nodeId}"

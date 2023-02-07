@@ -4,12 +4,13 @@ from app.models.admins import Admin
 from app.models.albums import Album
 from app.models.artists import Artist
 from app.models.genres import Genre
+from app.models.lyrics import Lyric
 from app.models.system import VisibilityOptions
 from app.models.users import User
 
 
-class Lyric(models.Model):
-   'Modelo de las letras'
+class LyricVersions(models.Model):
+   'Modelo de las versiones de las letras'
    id = models.BigAutoField(primary_key=True)
    dns = models.CharField(max_length=255, db_index=True, unique=True)
    visibility = models.CharField(max_length=10, choices=VisibilityOptions.choices, default=VisibilityOptions.Public)
@@ -35,40 +36,25 @@ class Lyric(models.Model):
    views = models.BigIntegerField(default=0)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
+   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
    artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
    albumId = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId")
-   genresGroup = models.ManyToManyField(Genre, related_name="genresGroup")
+   genresList = models.ManyToManyField(Genre, related_name="genresList")
    approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="approvedBy")
    sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
    
    class Meta:
-      db_table = "app_lyrics"
-      verbose_name = "lyric"
-      verbose_name_plural = "lyrics"
+      db_table = "app_lyric_versions"
+      verbose_name = "lyric versions"
+      verbose_name_plural = "lyric versions"
    
    def __str__(self):
       return self.name
 
 
-class LyricFT(models.Model):
-   'Modelo de Feacturing de las letras y de las versiones'
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
-   name = models.CharField(max_length=80)
-   nativeName = models.CharField(max_length=80)
-   dns = models.CharField(max_length=255)
-   
-   class Meta:
-      db_table = "app_lyric_ft"
-      verbose_name = "lyric featuring"
-      verbose_name_plural = "lyrics featuring"
-   
-   def __str__(self):
-      return self.name
-
-
-class LyricModifications(models.Model):
-   'Modelos de registro de modificaciones de las letras'
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
+class LyricVersionsModifications(models.Model):
+   'Modelos de registro de modificaciones de las versiones de las letras'
+   lyricId = models.ForeignKey(LyricVersions, on_delete=models.CASCADE, db_column="lyricId")
    modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifiedBy")
    sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
    times = models.PositiveSmallIntegerField(default=1)
@@ -76,24 +62,24 @@ class LyricModifications(models.Model):
    updatedAt = models.DateTimeField(auto_now=True)
 
    class Meta:
-      db_table = 'app_lyric_modifications'
-      verbose_name = "lyric modifications"
-      verbose_name_plural = "lyrics modifications"
+      db_table = 'app_lyric_versions_modifications'
+      verbose_name = "lyric versions modifications"
+      verbose_name_plural = "lyrics version modifications"
    
    def __str__(self):
-      return f"lyric modified: {self.lyricId}"
+      return f"version modified: {self.lyricId}"
 
-   
-class LyricLikes(models.Model):
-   'Likes de las letras'
+
+class LyricVersionLikes(models.Model):
+   'Likes de las versiones de letras'
    userId = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId")
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
+   lyricId = models.ForeignKey(LyricVersions, on_delete=models.CASCADE, db_column="lyricId")
    at = models.DateTimeField(auto_now_add=True)
    
    class Meta:
-      db_table = "app_lyric_likes"
-      verbose_name = "lyric likes"
-      verbose_name_plural = "lyric likes"
+      db_table = "app_lyric_verion_likes"
+      verbose_name = "lyric version likes"
+      verbose_name_plural = "lyric version likes"
    
    def __str__(self):
       return f"like to: {self.lyricId}"

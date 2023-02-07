@@ -1,11 +1,9 @@
-from datetime import datetime
-
 from django.db import models
 
 from app.models.system import AccountStatus, GenderOptions
 
 
-class Users(models.Model):
+class User(models.Model):
    'Modelo de Usuario'
    id = models.BigAutoField(primary_key=True)
    status = models.CharField(max_length=11, choices=AccountStatus.choices, default=AccountStatus.Unverified)
@@ -21,26 +19,33 @@ class Users(models.Model):
    photo = models.CharField(max_length=80, null=True)
    lastSeen = models.DateTimeField(null=True)
    activationKey = models.CharField(max_length=400, null=True)
-   registeredAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True)
+   registeredAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
    ip = models.CharField(max_length=16)
    
    class Meta:
+      db_table = "app_users"
       verbose_name = "user"
       verbose_name_plural = "users"
+   
+   def __str__(self):
+      return self.name
 
 
-class UserLogins(models.Model):
+class UsersLogin(models.Model):
    'Modelo de sessiones autorizadas'
    ssid = models.CharField(max_length=255)
    userAgent = models.CharField(max_length=300)
-   loginAt = models.DateTimeField(default=datetime.now())
+   loginAt = models.DateTimeField(auto_now_add=True)
    ip = models.CharField(max_length=16)
    country = models.CharField(max_length=3)
    aproved = models.BooleanField(default=True)
-   user = models.ForeignKey(Users, on_delete=models.CASCADE)
+   userId = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId")
    
    class Meta:
-      db_table = 'app_user_logins'
-      verbose_name = "user login"
-      verbose_name_plural = "user logins"
+      db_table = 'app_users_login'
+      verbose_name = "users login"
+      verbose_name_plural = "users login"
+   
+   def __str__(self):
+      return self.ssid

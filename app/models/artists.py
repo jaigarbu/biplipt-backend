@@ -1,15 +1,13 @@
-from datetime import datetime
-
 from django.db import models
 from django.utils.translation import gettext as _
 
-from app.models.admins import Admins
-from app.models.genres import Genres
+from app.models.admins import Admin
+from app.models.genres import Genre
 from app.models.system import VisibilityOptions
-from app.models.users import Users
+from app.models.users import User
 
 
-class ArtistsCategory(models.TextChoices):
+class ArtistCategories(models.TextChoices):
    'Categorias de los artistas'
    Band = 'band', _('Banda')
    Chorister = 'choir', _('Corista')
@@ -25,7 +23,7 @@ class ArtistsCategory(models.TextChoices):
    Singer = 'singer', _('Solista')
    
 
-class Artists(models.Model):
+class Artist(models.Model):
    'Modelo de los artistas'
    id = models.BigAutoField(primary_key=True)
    dns = models.CharField(max_length=255, db_index=True, unique=True)
@@ -34,7 +32,7 @@ class Artists(models.Model):
    tags = models.CharField(max_length=255)
    name = models.CharField(max_length=80)
    nativeName = models.CharField(max_length=80)
-   type = models.CharField(max_length=15, choices=ArtistsCategory.choices)
+   type = models.CharField(max_length=15, choices=ArtistCategories.choices)
    country = models.CharField(max_length=2)
    year = models.IntegerField(null=True, default=None)
    appleMusicID = models.CharField(max_length=255, null=True, default=None)
@@ -52,40 +50,50 @@ class Artists(models.Model):
    vibrantColor = models.CharField(max_length=9)
    views = models.BigIntegerField(default=0)
    info = models.CharField(max_length=250, null=True, default=None)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
-   genre = models.ForeignKey(Genres, on_delete=models.SET_NULL, null=True)
-   addedBy = models.ForeignKey(Admins, on_delete=models.SET_NULL, null=True)
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
+   genreId = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, db_column="genreId")
+   addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy")
    
    class Meta:
+      db_table = "app_artists"
       verbose_name = "artist"
       verbose_name_plural = "artists"
+   
+   def __str__(self):
+      return self.name
 
 
 class ArtistImages(models.Model):
    'Modelo de la galeria de imágenes de los artistas'
-   artist = models.ForeignKey(Artists, on_delete=models.CASCADE)
+   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
    image = models.CharField(max_length=80)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
-   admin = models.ForeignKey(Admins, on_delete=models.SET_DEFAULT, null=True, default=None)
-   user = models.ForeignKey(Users, on_delete=models.SET_DEFAULT, null=True, default=None)
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
+   adminId = models.ForeignKey(Admin, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="adminId")
+   userId = models.ForeignKey(User, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="userId")
 
    class Meta:
       db_table = 'app_artist_images'
       verbose_name = "artist image"
       verbose_name_plural = "artist images"
+   
+   def __str__(self):
+      return f"image added: {self.image}"
 
 
-class ArtistModified(models.Model):
+class ArtistModifications(models.Model):
    'Modelos de registro de modificaciones de los artistas'
-   artist = models.ForeignKey(Artists, on_delete=models.CASCADE)
-   modifiedBy = models.ForeignKey(Admins, on_delete=models.SET_DEFAULT, null=True, default=None)
-   times = models.IntegerField(default=1)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
+   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
+   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="modifiedBy")
+   times = models.PositiveSmallIntegerField(default=1)
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
 
    class Meta:
-      db_table = 'app_artist_modified'
-      verbose_name = "artist modified"
-      verbose_name_plural = "artists modified"
+      db_table = 'app_artist_modifications'
+      verbose_name = "artist modifications"
+      verbose_name_plural = "artist modifications"
+   
+   def __str__(self):
+      return f"modified artist: {self.artistId}"

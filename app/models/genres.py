@@ -1,35 +1,40 @@
-from datetime import datetime
-
 from django.db import models
 
-from app.models.admins import Admins
+from app.models.admins import Admin
 from app.models.system import VisibilityOptions
 
 
-class Genres(models.Model):
+class Genre(models.Model):
    'Modelo de los géneros'
    id = models.BigAutoField(primary_key=True)
    dns = models.CharField(max_length=255, unique=True)
    visibility = models.CharField(max_length=10, choices=VisibilityOptions.choices)
    name = models.CharField(max_length=30)
-   addedBy = models.ForeignKey(Admins, null=True, on_delete=models.SET_NULL)
-   addedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True, default=None)
+   addedBy = models.ForeignKey(Admin, null=True, on_delete=models.SET_NULL, db_column="addedBy")
+   addedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
       
    class Meta:
+      db_table = "app_genres"
       verbose_name = "genre"
       verbose_name_plural = "genres"
+   
+   def __str__(self):
+      return self.name
 
 
-class GenreModified(models.Model):
+class GenreModifications(models.Model):
    'Modelo de registro de cambios de los generos'
-   genre = models.ForeignKey(Genres, on_delete=models.CASCADE)
-   modifiedBy = models.ForeignKey(Admins, on_delete=models.CASCADE)
-   times = models.CharField(max_length=10)
-   modifiedAt = models.DateTimeField(default=datetime.now())
-   updatedAt = models.DateTimeField(null=True)
+   genreId = models.ForeignKey(Genre, on_delete=models.CASCADE, db_column="genreId")
+   modifierId = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifierId")
+   times = models.PositiveSmallIntegerField(default=1)
+   modifiedAt = models.DateTimeField(auto_now_add=True)
+   updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
-      db_table = 'app_genre_modified'
-      verbose_name = "genre modified"
-      verbose_name_plural = "genres modified"
+      db_table = 'app_genre_modifications'
+      verbose_name = "genre modifications"
+      verbose_name_plural = "genres modifications"
+   
+   def __str__(self) -> str:
+      return f"{self.genreId} - {self.times}"
