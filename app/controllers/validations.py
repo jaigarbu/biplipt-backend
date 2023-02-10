@@ -2,9 +2,9 @@ import re
 
 from django.utils.translation import gettext as _
 
-from app.constants.regExp import (EXP_COUNTRY_CODE, EXP_EMAIL, EXP_GENDER,
-                                  EXP_LANGUAGE, EXP_NAME, EXP_TOKEN_URL,
-                                  EXP_USERNAME)
+from app.constants.regExp import (EXP_CELLPHONE, EXP_COUNTRY_CODE, EXP_EMAIL,
+                                  EXP_GENDER, EXP_LANGUAGE, EXP_NAME,
+                                  EXP_TOKEN_URL, EXP_USERNAME)
 from app.utils.exceptions import ValidationError
 
 
@@ -27,6 +27,21 @@ class ValidationsController():
    
    
    @classmethod
+   def validateRegisterAdmin(cls, params: dict):
+      """Valida los campos necesarios para el registro de un administrador, moderador o artista
+      
+      :param `params: dict` — Campos para la creacion de una cuenta de adminitracion o modearción
+      """
+      cls.val_name(params.get('name'))
+      cls.val_name(params.get('lastName'), 'lastname')
+      cls.val_country_code(params.get('country'))
+      cls.val_cellphone(params.get('cellphone'))
+      cls.val_gender(params.get('gender'))
+      cls.val_email(params.get('email'))
+      cls.val_match_password(params.get('password'), params.get('passwordVerify'))
+   
+   
+   @classmethod
    def val_email(cls, email: str):
       'Valida un E-mail'
       if not re.search(EXP_EMAIL, email):
@@ -36,7 +51,7 @@ class ValidationsController():
    @classmethod
    def val_id(cls, id):
       'Valida un ID'
-      if not isinstance(id, int) or id < 1:
+      if int(id) < 1:
          raise ValidationError(_('ID inválido'), 'id')
 
 
@@ -90,26 +105,7 @@ class ValidationsController():
    
    
    @classmethod
-   def val_allow(cls, payload: dict|bool, group: int) -> bool:
-      """Comprueba los permisos de un usuario
-      
-      :param `payload: dict | bool` — Carga util de un JWT de session
-      :param `group: int` — Grupo al que pertenece el usuario
-      :return — bool
-      
-      Los grupos para la validación son:
-      * `1` Solo adminitrador
-      * `2` Solo moderador
-      * `3` Solo artista
-      * `4` Todos los usuarios logeados del sistema
-      * `5` Todos los moderadores (administrador, moderador, artista)
-      * `6` Solo administrador y artista
-      """
-      allow = payload.get('group', False) if isinstance(payload, dict) else False
-      if (not allow and group < 5) or (group < 5 and allow != group):
-         return False
-      if (not allow and group == 5) or (group == 5 and allow > 3):
-         return False
-      if (not allow and group == 6) or (group == 6 and allow > 2):
-         return False
-      return True
+   def val_cellphone(cls, cellphone):
+      'valida un numero de telefono con formato internacional'
+      if not re.search(EXP_CELLPHONE, cellphone):
+         raise ValidationError(_('El número de teléfono no es válido'))         

@@ -16,6 +16,10 @@ class SystemController:
    
    @classmethod
    def get_system(cls, headers: any):
+      """Obtiene la información del sistema
+      
+      :param `headers: dict` — Headers http de la consulta actual
+      """
       try:
          # leer la configuracion del sistema
          with open(cls.config) as jsonfile:
@@ -37,8 +41,7 @@ class SystemController:
             activate(locale)
             
          # Verifica si existe una session iniciada y retornar datos de session
-         token = headers.META.get('HTTP_AUTHORIZATION', None)
-         session = AuthController.validate_session(token)
+         session = AuthController.validate_session(headers=headers.META)
 
          return {
             'app': data.get('app'),
