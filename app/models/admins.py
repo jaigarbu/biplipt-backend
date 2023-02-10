@@ -6,9 +6,9 @@ from app.models.system import AccountStatus, GenderOptions
 
 class GroupAdmins(models.TextChoices):
    'Opciones para los grupos de los administradores'
-   Admin = 1, _('Adminitrador')
-   Artist = 2, _('Artista')
-   Moderator = 3, _('Moderador')
+   Admin = '1', _('Adminitrador')
+   Artist = '2', _('Artista')
+   Moderator = '3', _('Moderador')
 
 class NodeTypes(models.TextChoices):
    lyric = 'lyric', _('Letra')
@@ -40,7 +40,7 @@ class Admin(models.Model):
    updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
-      db_table = "app_admins"
+      db_table = "app_admin"
       verbose_name = "admin"
       verbose_name_plural = "admins"
    
