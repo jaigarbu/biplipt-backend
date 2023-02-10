@@ -16,7 +16,7 @@ class UserQuery(graphene.ObjectType):
    # resolvers
    def resolve_getUser(root, info, id=None, username=None, email=None):
       if (id != None):
-         field = "ID"
+         field = "id"
          value = id
       elif (username != None):
          field = 'username'
@@ -25,11 +25,11 @@ class UserQuery(graphene.ObjectType):
          field = 'email'
          value = email
       else:
-         field = 'ID'
+         field = 'id'
          value = 0
       
       try:
-         data = UserController.getUser(field=field, value=value, headers=info.context)
+         data = UserController.getUser(field=field, value=value, headers=info.context.META)
          return data
       except ValidationError as e:
          return GraphQLError(message=e.message)
@@ -37,14 +37,16 @@ class UserQuery(graphene.ObjectType):
          return GraphQLError(message=e.message)
       except Exception:
          return GraphQLError('Internal Server Error')
-         
+   
+   
    def resolve_getUsers(root, info, orderBy=None, offset=None, limit=None):
       try:
-         users = UserController.getUsers(orderBy=orderBy, offset=offset, limit=limit, headers=info.context)
+         users = UserController.getUsers(orderBy=orderBy, offset=offset, limit=limit, headers=info.context.META)
          return users
       except ValidationError as e:
          return GraphQLError(message=e.message)
       except HttpError as e:
          return GraphQLError(message=e.message)
-      except Exception:
+      except Exception as e:
+         print(e.args)
          return GraphQLError('Internal Server Error')

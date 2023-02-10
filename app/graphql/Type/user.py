@@ -1,12 +1,12 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from app.models.users import Users
+from app.models.users import User
 
 
 class UserType(DjangoObjectType):
    class Meta:
-      model = Users
+      model = User
       exclude = ('password', 'activationKey')
 
 

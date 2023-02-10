@@ -1,13 +1,13 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from app.models.genres import Genres
+from app.models.genres import Genre
 
 
 class GenreType(DjangoObjectType):
 	'Tipo de dato de los géneros'
 	class Meta:
-		model = Genres
+		model = Genre
 
 
 class GenreData(graphene.ObjectType):

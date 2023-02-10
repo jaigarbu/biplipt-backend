@@ -27,16 +27,16 @@ class CreateUser(graphene.Mutation):
       password = graphene.String(required=True)
       passwordVerify = graphene.String(required=True)
       
-   @classmethod
-   def mutate(cls, root, info, **kwargs):
+   def mutate(root, info, **kwargs):
       try:
-         user = UserController.createUser(inputs=kwargs, headers=info.context)
+         user = UserController.createUser(inputs=kwargs, headers=info.context.META)
          return CreateUser(code=200, message=_("Usuario creado correctamente"), data=user)
       except ValidationError as e:
          return GraphQLError(message=e.message)
       except HttpError as e:
          return GraphQLError(message=e.message)
-      except Exception:
+      except Exception as e:
+         print(e.args)
          return GraphQLError('Internal Server Error')
 
 
@@ -48,12 +48,10 @@ class DeleteUser(graphene.Mutation):
    class Arguments:
       id = graphene.ID(required=True)
    
-   @classmethod
-   def mutate(self, root, info, id):
+   def mutate(root, info, id):
       try:
-         UserController.deleteUser(id=id, headers=info.context)
-         msg = _('Cuenta eliminada correctamente')
-         return DeleteUser(code=200, message=msg, id=id)
+         UserController.deleteUser(id=id, headers=info.context.META)
+         return DeleteUser(code=200, message=_('Cuenta eliminada correctamente'), id=id)
       except ValidationError as e:
          return GraphQLError(message=e.message)
       except HttpError as e:
@@ -71,10 +69,9 @@ class LoginUser(graphene.Mutation):
       email = graphene.String(required=True)
       password = graphene.String(required=True)
    
-   @classmethod
-   def mutate(self, root, info, email, password):
+   def mutate(root, info, email, password):
       try:
-         token = AuthController.login(email=email, password=password)
+         token = AuthController.login(email=email, password=password, headers=info.context.META)
          return LoginUser(code=200, message=_('Login Successfully'), token=token)
       except ValidationError as e:
          return GraphQLError(message=e.message)

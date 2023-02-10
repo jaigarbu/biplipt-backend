@@ -16,5 +16,6 @@ class SystemQuery(graphene.ObjectType):
          system = SystemController.get_system(info.context)
          return system
       except Exception as e:
+         print(e.args)
          return GraphQLError(_('Internal Server Error. Please try again later'))
       
