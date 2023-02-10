@@ -5,5 +5,5 @@ from graphene_django.views import GraphQLView
 from app.graphql.schema import Schema
 
 urlpatterns = [
-    path('data/api/', csrf_exempt(GraphQLView.as_view(graphiql=False, schema=Schema)))
+   path('data/api/', csrf_exempt(GraphQLView.as_view(graphiql=False, schema=Schema)))
 ]

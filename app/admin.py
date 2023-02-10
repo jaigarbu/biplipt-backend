@@ -1,21 +1,23 @@
 from django.contrib import admin
 
-from app.models.admins import Admins, AdminsLogin, ContentMarks
-from app.models.albums import AlbumFT, AlbumModified, Albums
-from app.models.artists import ArtistImages, ArtistModified, Artists
-from app.models.genres import GenreModified, Genres
-from app.models.lyrics import (LyricFT, LyricLikes, LyricModified, Lyrics,
-                               LyricVersions, LyricVersionsModified)
-from app.models.temporals import TemporalLyrics, TemporalTranslate
-from app.models.translates import Translates, TranslatesModified
-from app.models.users import UserLogins, Users
+from app.models.admins import Admin, AdminsLogin, ContentMarks
+from app.models.albums import Album, AlbumFT, AlbumModifications
+from app.models.artists import Artist, ArtistImages, ArtistModifications
+from app.models.genres import Genre, GenreModifications
+from app.models.lyric_versions import (LyricVersionLikes, LyricVersions,
+                                       LyricVersionsModifications)
+from app.models.lyrics import Lyric, LyricFT, LyricLikes, LyricModifications
+from app.models.temporals import TemporalLyric, TemporalTranslate
+from app.models.translates import Translate, TranslateModifications
+from app.models.users import User, UsersLogin
 
 # Register your models here.
-admin.site.register([Admins, AdminsLogin, ContentMarks])
-admin.site.register([Albums, AlbumFT, AlbumModified])
-admin.site.register([Artists, ArtistModified, ArtistImages])
-admin.site.register([Genres, GenreModified])
-admin.site.register([Lyrics, LyricFT, LyricLikes, LyricModified, LyricVersionsModified, LyricVersions])
-admin.site.register([TemporalLyrics, TemporalTranslate])
-admin.site.register([Translates, TranslatesModified])
-admin.site.register([Users, UserLogins])
+admin.site.register([Admin, AdminsLogin, ContentMarks])
+admin.site.register([Album, AlbumFT, AlbumModifications])
+admin.site.register([Artist, ArtistModifications, ArtistImages])
+admin.site.register([GenreModifications, Genre])
+admin.site.register([Lyric, LyricFT, LyricLikes, LyricModifications])
+admin.site.register([LyricVersions, LyricVersionsModifications, LyricVersionLikes])
+admin.site.register([TemporalLyric, TemporalTranslate])
+admin.site.register([Translate, TranslateModifications])
+admin.site.register([User, UsersLogin])
