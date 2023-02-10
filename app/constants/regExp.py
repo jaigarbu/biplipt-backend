@@ -5,7 +5,7 @@ EXP_LOCALE = r'^[a-z]{2}\-[a-z]{2}$'
 
 
 # Expresiones generales validas para -> ES, FR, EN, PT, IT
-EXP_CELLPHONE = r'^[0-9]{10}$'
+EXP_CELLPHONE = r'(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}'
 EXP_EMAIL = r'^[a-z0-9_-]+(?:\.[a-z0-9_-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$'
 EXP_GENDER = r'^(M|F|O)$'
 EXP_PASSWORD = r'^[\w\d\W]{8,32}$'
