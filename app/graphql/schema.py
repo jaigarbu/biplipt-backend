@@ -1,9 +1,11 @@
 import graphene
 
 from app.graphql.Mutation.admin import CreateAdmin
-from app.graphql.Mutation.genre import CreateGenre, DeleteGenre
+from app.graphql.Mutation.genre import CreateGenre, DeleteGenre, UpdateGenre
 from app.graphql.Mutation.user import CreateUser, DeleteUser, LoginUser
 from app.graphql.Query.genre import GenreQuery
+from app.graphql.Query.lyric import LyricQuery
+from app.graphql.Query.stats import StatsQuery
 from app.graphql.Query.system import SystemQuery
 from app.graphql.Query.user import UserQuery
 
@@ -12,6 +14,8 @@ class Query(
    SystemQuery,
    UserQuery,
    GenreQuery,
+   StatsQuery,
+   LyricQuery,
    graphene.ObjectType
 ):
    'Query principal de GraphQL API'
@@ -24,6 +28,7 @@ class Mutation(graphene.ObjectType):
    
    createGenre = CreateGenre.Field()
    deleteGenre = DeleteGenre.Field()
+   updateGenre = UpdateGenre.Field()
    
    createUser = CreateUser.Field()
    deleteUser = DeleteUser.Field()

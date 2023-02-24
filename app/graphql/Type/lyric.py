@@ -1,13 +1,13 @@
 from graphene_django import DjangoObjectType
 
-from app.models.lyrics import (LyricFT, LyricLikes, LyricModified, Lyrics,
-                               LyricVersions, LyricVersionsLikes,
-                               LyricVersionsModified)
+from app.models.lyric_versions import (LyricVersionLikes, LyricVersions,
+                                       LyricVersionsModifications)
+from app.models.lyrics import Lyric, LyricFT, LyricLikes, LyricModifications
 
 
 class LyricType(DjangoObjectType):
    class Meta:
-      model = Lyrics
+      model = Lyric
 
 
 class LyricVersionType(DjangoObjectType):
@@ -27,14 +27,14 @@ class LyricLikesType(DjangoObjectType):
 
 class LyricVersionLikesType(DjangoObjectType):
    class Meta:
-      model = LyricVersionsLikes
+      model = LyricVersionLikes
 
 
-class LyricModifiedType(DjangoObjectType):
+class LyricModificationsType(DjangoObjectType):
    class Meta:
-      model = LyricModified
+      model = LyricModifications
 
 
-class LyricVersionModifiedType(DjangoObjectType):
+class LyricVersionModificationsType(DjangoObjectType):
    class Meta:
-      model = LyricVersionsModified
+      model = LyricVersionsModifications

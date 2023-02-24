@@ -49,3 +49,27 @@ class DeleteGenre(graphene.Mutation):
       except BaseException as e:
          print(e.args)
          return GraphQLError('Internal Server Error')
+
+
+class UpdateGenre(graphene.Mutation):
+   code = graphene.Int(required=True)
+   message = graphene.String(required=True)
+   data = graphene.Field(GenreType)
+   
+   class Arguments:
+      dns = graphene.String(required=True)
+      name = graphene.String()
+      visibility = graphene.Argument(ItemVisibilityEnum)
+   
+   
+   def mutate(root, info, **kwargs):
+      try:
+         genre = GenreController.updateGenre(dns=kwargs.get('dns'), inputs=kwargs, headers=info.context.META)
+         return CreateGenre(code=200, message=_("Género actualizado correctamente"), data=genre)
+      except ValidationError as e:
+         return GraphQLError(message=e.message)
+      except HttpError as e:
+         return GraphQLError(message=e.message)
+      except BaseException as e:
+         print(e.args)
+         return GraphQLError('Internal Server Error')
