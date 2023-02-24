@@ -49,7 +49,7 @@ class LyricVersions(models.Model):
       verbose_name_plural = "lyric versions"
    
    def __str__(self):
-      return self.name
+      return self.title
 
 
 class LyricVersionsModifications(models.Model):

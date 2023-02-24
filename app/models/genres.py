@@ -9,7 +9,7 @@ class Genre(models.Model):
    id = models.BigAutoField(primary_key=True)
    dns = models.CharField(max_length=255, unique=True)
    visibility = models.CharField(max_length=10, choices=VisibilityOptions.choices)
-   name = models.CharField(max_length=30)
+   name = models.CharField(max_length=30, unique=True)
    addedBy = models.ForeignKey(Admin, null=True, on_delete=models.SET_NULL, db_column="addedBy", related_name="genresAdded")
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
@@ -37,4 +37,4 @@ class GenreModifications(models.Model):
       verbose_name_plural = "genres modifications"
    
    def __str__(self) -> str:
-      return self.genre
+      return self.genre.name
