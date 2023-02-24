@@ -49,9 +49,9 @@ def normalize_string(value: str, type: str = None) -> str:
       ouput = ouput.translate(translator)
       ouput = str.lower(ouput)
       ouput = re.sub(r'[^a-z0-9]', ' ', ouput)
-      ouput = str.strip(value)
+      ouput = str.strip(value).lower()
       ouput = re.sub(r'\s{1,}', '-', ouput)
-   elif type == 'name':
+   elif type == 'title':
       ouput = re.sub(expName, '', ouput)
       ouput = re.sub(r'\s{2,}', ' ', ouput)
       ouput = str.title(ouput)
