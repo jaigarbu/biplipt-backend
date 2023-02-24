@@ -54,7 +54,7 @@ class Artist(models.Model):
    updatedAt = models.DateTimeField(auto_now=True)
    genre = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, db_column="genreId", related_name="artists")
    addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy", related_name="artistsAdded")
-   images = models.ManyToManyField("ArtistImages", related_name="artitsImages", null=True, blank=True)
+   images = models.ManyToManyField("ArtistImages", related_name="artitsImages", blank=True)
    
    class Meta:
       db_table = "artists"
