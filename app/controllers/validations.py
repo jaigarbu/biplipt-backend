@@ -108,4 +108,19 @@ class ValidationsController():
    def val_cellphone(cls, cellphone):
       'valida un numero de telefono con formato internacional'
       if not re.search(EXP_CELLPHONE, cellphone):
-         raise ValidationError(_('El número de teléfono no es válido'))         
+         raise ValidationError(_('El número de teléfono no es válido'))
+   
+   
+   @classmethod
+   def set_queryOrderBy(cls, orderBy: str|None) -> str:
+      """Valida y establece el orderBy de una sonsulta dentro de un controlador
+      
+      :param `orderBy: str | None` — Orden de la consulta en formato `campo_order`
+      :return — dict
+      """
+      if orderBy != None:
+         line = orderBy.value.partition('_')
+         order = line[0] if line[2] == "asc" else f'-{line[0]}'
+      else:
+         order = 'id'
+      return order

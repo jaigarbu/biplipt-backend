@@ -1,5 +1,4 @@
 from codecs import decode, encode
-from tokenize import group
 
 import bcrypt
 from django.utils.translation import gettext as _
@@ -12,10 +11,18 @@ from app.utils.exceptions import HttpError, ValidationError
 
 
 class AuthController:
+   """Controlador de procesos relacionados con la autenticacion y seguridad de las cuentas y adminstraciones
+   internas del sistema
+   
+   :raises `ValidationError` — Excepcion para errores de validacion
+   :raises `HttpError` — Excpecion para errores de peticiones HTTP
+   """
    
    cost = 14
    sessionInvalid = _('Tu sessión ha expirado. Por favor ingresa de nuevo para continuar')
    unauthorized = _('Usted no está autorizado para realizar esta operación')
+   notAvailable = _('Lo sentimos el recurso solicitado no está disponible')
+   restricted = _('Lo sentimos el recurso solicitado se encuentra restringido')
    
    @classmethod
    def login(cls, email: str, password: str, headers: dict) -> str:
@@ -25,6 +32,8 @@ class AuthController:
       :param `password: str` — Contraseña
       :return — str
       """
+      invalidCredentials = _('Credenciales de acceso inválidas. Por favor, verifíquelas e intente nuevamente')
+      
       # validar datos de sesion
       ValidationsController.val_email(email=email)
       
@@ -38,7 +47,7 @@ class AuthController:
          user = User.objects.get(email=email)
          checkPw = cls.verify_password(password=password, passwordHash=user.password)
          if not checkPw:
-            raise ValidationError(_('Credenciales de acceso inválidas. Por favor, verifiquelas'), 'credential')
+            raise ValidationError(invalidCredentials, 'credential')
          
          # creacion de payload de token de session
          payload = {
@@ -50,8 +59,8 @@ class AuthController:
          
          token = TokenController.singToken(payload=payload, key=JWS_KEY, expiration=604800)
          return token
-      except User.DoesNotExist as e:
-         raise HttpError(_('Esta cuenta no existe'), 401)
+      except User.DoesNotExist:
+         raise HttpError(invalidCredentials, 400)
    
    
    @classmethod
@@ -119,3 +128,26 @@ class AuthController:
       bitesHash = passwordHash.encode()
       verify = bcrypt.checkpw(password=bitesPass, hashed_password=bitesHash)
       return verify
+   
+   
+   @classmethod
+   def validate_permissions(cls, session: dict|bool, visibility: str):
+      """Valida los permisos del usuario actual para consultar un recurso
+      
+      :param `session: dict | bool` — Payload de session actual del usuario
+      :param `visibility: str` — Visibilidad actual del recurso
+      :param `messages: dict` — Diccionario con los mensajes de error para cada caso de valicación
+      :raises `HttpError` — Excepcion patra errores HTTP
+      
+      Las claves del diccionario para los mensajes de error son los siguintes:
+      * `404` Mensaje de error para recursos bloqueados o privados
+      * `401` Mensaje de error para recursos restringidos
+      """      
+      if visibility == 'block' and not AuthController.val_allow(session, 1):
+         raise HttpError(cls.notAvailable, 404)
+            
+      if visibility == 'private' and not AuthController.val_allow(session, 6):
+         raise HttpError(cls.notAvailable, 404)
+            
+      if visibility == 'restricted' and not AuthController.val_allow(session, 5):
+         raise HttpError(cls.restricted, 401)

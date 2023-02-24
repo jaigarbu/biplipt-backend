@@ -70,11 +70,7 @@ class UserController():
       :return — list
       """
       # Obteber orderBy offset y limit en caso de existir
-      if orderBy != None:
-         line = orderBy.value.partition('_')
-         order = line[0] if line[2] == "asc" else f'-{line[0]}'
-      else:
-         order = 'id'
+      order = ValidationsController.set_queryOrderBy(orderBy)
       minimun = offset if offset != None else cls.offset
       maximun = limit if limit != None else cls.limit
       
