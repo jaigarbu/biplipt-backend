@@ -24,7 +24,7 @@ class User(models.Model):
    ip = models.CharField(max_length=16)
    
    class Meta:
-      db_table = "app_users"
+      db_table = "users"
       verbose_name = "user"
       verbose_name_plural = "users"
    
@@ -40,10 +40,10 @@ class UsersLogin(models.Model):
    ip = models.CharField(max_length=16)
    country = models.CharField(max_length=3)
    aproved = models.BooleanField(default=True)
-   userId = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId")
+   user = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId", related_name="sessions")
    
    class Meta:
-      db_table = 'app_users_login'
+      db_table = 'users_login'
       verbose_name = "users login"
       verbose_name_plural = "users login"
    

@@ -15,50 +15,50 @@ class Lyric(models.Model):
    visibility = models.CharField(max_length=10, choices=VisibilityOptions.choices, default=VisibilityOptions.Public)
    verify = models.BooleanField(default=False)
    tags = models.CharField(max_length=255, db_index=True)
-   name = models.CharField(max_length=80)
-   nativeName = models.CharField(max_length=80)
-   track = models.PositiveSmallIntegerField(null=True, default=None)
-   duraction = models.PositiveIntegerField(null=True, default=None)
+   title = models.CharField(max_length=80)
+   nativeTitle = models.CharField(max_length=80)
+   track = models.PositiveSmallIntegerField(null=True, blank=True)
+   duraction = models.PositiveIntegerField(null=True, blank=True)
    country = models.CharField(max_length=2)
    language = models.CharField(max_length=20)
-   year = models.PositiveSmallIntegerField(null=True, default=None)
-   composers = models.CharField(max_length=255, null=True, default=None)
-   writers = models.CharField(max_length=255, null=True, default=None)
-   copyright = models.CharField(max_length=400, null=True, default=None)
+   year = models.PositiveSmallIntegerField(null=True, blank=True)
+   composers = models.CharField(max_length=255, null=True, blank=True)
+   writers = models.CharField(max_length=255, null=True, blank=True)
+   copyright = models.CharField(max_length=400, null=True, blank=True)
    lyric = models.TextField()
-   nativeLyric = models.TextField(null=True, default=None)
-   appleMusicID = models.CharField(max_length=255, null=True, default=None)
-   deezerID = models.CharField(max_length=255, null=True, default=None)
-   spotifyID = models.CharField(max_length=255, null=True, default=None)
-   youTubeID = models.CharField(max_length=255, null=True, default=None)
-   youTubeMusicID = models.CharField(max_length=255, null=True, default=None)
+   nativeLyric = models.TextField(null=True, blank=True)
+   appleMusicID = models.CharField(max_length=255, null=True, blank=True)
+   deezerID = models.CharField(max_length=255, null=True, blank=True)
+   spotifyID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeMusicID = models.CharField(max_length=255, null=True, blank=True)
    views = models.BigIntegerField(default=0)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
-   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
-   albumId = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId")
-   genresGroup = models.ManyToManyField(Genre, related_name="genresGroup")
-   approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="approvedBy")
-   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
+   artist = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId", related_name="lyrics")
+   album = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId", related_name="lyrics")
+   genres = models.ManyToManyField(Genre, related_name="lyrics")
+   approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="approvedBy", related_name="lyrics")
+   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, db_column="sentBy", related_name="lyrics")
    
    class Meta:
-      db_table = "app_lyrics"
+      db_table = "lyrics"
       verbose_name = "lyric"
       verbose_name_plural = "lyrics"
    
    def __str__(self):
-      return self.name
+      return self.title
 
 
 class LyricFT(models.Model):
    'Modelo de Feacturing de las letras y de las versiones'
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
+   lyric = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId", related_name="ft")
    name = models.CharField(max_length=80)
    nativeName = models.CharField(max_length=80)
-   dns = models.CharField(max_length=255)
+   dns = models.CharField(max_length=255, null=True, blank=True)
    
    class Meta:
-      db_table = "app_lyric_ft"
+      db_table = "lyric_ft"
       verbose_name = "lyric featuring"
       verbose_name_plural = "lyrics featuring"
    
@@ -68,32 +68,32 @@ class LyricFT(models.Model):
 
 class LyricModifications(models.Model):
    'Modelos de registro de modificaciones de las letras'
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
-   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifiedBy")
-   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=None, db_column="sentBy")
+   lyric = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId", related_name="modifications")
+   approvedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifiedBy", related_name="lyricModified")
+   sentBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, db_column="sentBy", related_name="lyricModifications")
    times = models.PositiveSmallIntegerField(default=1)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
 
    class Meta:
-      db_table = 'app_lyric_modifications'
+      db_table = 'lyric_modifications'
       verbose_name = "lyric modifications"
       verbose_name_plural = "lyrics modifications"
    
    def __str__(self):
-      return f"lyric modified: {self.lyricId}"
+      return self.lyric.title
 
    
 class LyricLikes(models.Model):
    'Likes de las letras'
-   userId = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId")
-   lyricId = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId")
+   user = models.ForeignKey(User, on_delete=models.CASCADE, db_column="userId", related_name="+")
+   lyric = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId", related_name="likes")
    at = models.DateTimeField(auto_now_add=True)
    
    class Meta:
-      db_table = "app_lyric_likes"
+      db_table = "lyric_likes"
       verbose_name = "lyric likes"
       verbose_name_plural = "lyric likes"
    
    def __str__(self):
-      return f"like to: {self.lyricId}"
+      return self.lyric.title

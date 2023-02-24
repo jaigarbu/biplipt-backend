@@ -23,7 +23,7 @@ class Admin(models.Model):
    group = models.CharField(max_length=1, choices=GroupAdmins.choices)
    status = models.CharField(max_length=11, choices=AccountStatus.choices, default=AccountStatus.Unverified)
    verify = models.BooleanField(default=False)
-   signature = models.CharField(max_length=255, null=True, default=None)
+   signature = models.CharField(max_length=255, null=True, blank=True)
    name = models.CharField(max_length=20)
    lastName = models.CharField(max_length=30)
    country = models.CharField(max_length=2)
@@ -32,15 +32,15 @@ class Admin(models.Model):
    birthdate = models.DateField()
    email = models.CharField(max_length=50, unique=True)
    password = models.CharField(max_length=255)
-   masterKey = models.CharField(max_length=255, null=True, default=None)
+   masterKey = models.CharField(max_length=255, null=True, blank=True)
    lastSeen = models.DateTimeField(null=True, default=None)
    ip = models.CharField(max_length=15)
-   activationKey = models.CharField(max_length=400, null=True, default=None)
+   activationKey = models.CharField(max_length=400, null=True, blank=True)
    registeredAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
    
    class Meta:
-      db_table = "app_admin"
+      db_table = "admins"
       verbose_name = "admin"
       verbose_name_plural = "admins"
    
@@ -56,10 +56,10 @@ class AdminsLogin(models.Model):
    ip = models.CharField(max_length=16)
    country = models.CharField(max_length=3)
    aproved = models.BooleanField(default=True)
-   adminId = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId")
+   admin = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId", related_name="logins")
 
    class Meta:
-      db_table = 'app_admins_login'
+      db_table = 'admins_login'
       verbose_name = "admins login"
       verbose_name_plural = "admins login"
    
@@ -69,15 +69,15 @@ class AdminsLogin(models.Model):
 
 class ContentMarks(models.Model):
    'Modelo de registro de marcadores de los adminitradores'
-   nodeId = models.CharField(max_length=20, db_index=True)
+   nodeId = models.PositiveBigIntegerField(db_index=True)
    nodeType = models.CharField(max_length=20, choices=NodeTypes.choices)
    addedAt = models.DateTimeField(auto_now_add=True)
-   adminId = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId")
+   admin = models.ForeignKey(Admin, on_delete=models.CASCADE, db_column="adminId", related_name="marks")
 
    class Meta:
-      db_table = 'app_admins_content_mark'
+      db_table = 'admins_content_mark'
       verbose_name = "admins mark"
       verbose_name_plural = "admins mark"
    
    def __str__(self):
-      return f"{self.nodeType} - {self.nodeId}"
+      return self.admin.name

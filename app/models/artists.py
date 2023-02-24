@@ -34,29 +34,30 @@ class Artist(models.Model):
    nativeName = models.CharField(max_length=80)
    type = models.CharField(max_length=15, choices=ArtistCategories.choices)
    country = models.CharField(max_length=2)
-   year = models.IntegerField(null=True, default=None)
-   appleMusicID = models.CharField(max_length=255, null=True, default=None)
-   deezerID = models.CharField(max_length=255, null=True, default=None)
-   spotifyID = models.CharField(max_length=255, null=True, default=None)
-   youTubeID = models.CharField(max_length=255, null=True, default=None)
-   youTubeMusicID = models.CharField(max_length=255, null=True, default=None)
-   facebookID = models.CharField(max_length=255, null=True, default=None)
-   instagramID = models.CharField(max_length=255, null=True, default=None)
-   twitterID = models.CharField(max_length=255, null=True, default=None)
-   web = models.CharField(max_length=100, null=True, default=None)
-   photo = models.CharField(max_length=80)
-   cover = models.CharField(max_length=80)
-   color = models.CharField(max_length=9)
-   vibrantColor = models.CharField(max_length=9)
+   year = models.IntegerField(null=True, blank=True)
+   appleMusicID = models.CharField(max_length=255, null=True, blank=True)
+   deezerID = models.CharField(max_length=255, null=True, blank=True)
+   spotifyID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeMusicID = models.CharField(max_length=255, null=True, blank=True)
+   facebookID = models.CharField(max_length=255, null=True, blank=True)
+   instagramID = models.CharField(max_length=255, null=True, blank=True)
+   twitterID = models.CharField(max_length=255, null=True, blank=True)
+   web = models.CharField(max_length=100, null=True, blank=True)
+   photo = models.CharField(max_length=80, null=True, blank=True)
+   cover = models.CharField(max_length=80, null=True, blank=True)
+   color = models.CharField(max_length=9, null=True, blank=True)
+   vibrantColor = models.CharField(max_length=9, null=True, blank=True)
    views = models.BigIntegerField(default=0)
-   info = models.CharField(max_length=250, null=True, default=None)
+   info = models.CharField(max_length=250, null=True, blank=True)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
-   genreId = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, db_column="genreId")
-   addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy")
+   genre = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, db_column="genreId", related_name="artists")
+   addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy", related_name="artistsAdded")
+   images = models.ManyToManyField("ArtistImages", related_name="artitsImages", null=True, blank=True)
    
    class Meta:
-      db_table = "app_artists"
+      db_table = "artists"
       verbose_name = "artist"
       verbose_name_plural = "artists"
    
@@ -66,34 +67,34 @@ class Artist(models.Model):
 
 class ArtistImages(models.Model):
    'Modelo de la galeria de imágenes de los artistas'
-   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
+   id = models.BigAutoField(primary_key=True)
    image = models.CharField(max_length=80)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
-   adminId = models.ForeignKey(Admin, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="adminId")
-   userId = models.ForeignKey(User, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="userId")
+   admin = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, blank=True, db_column="adminId", related_name="imagesAdded")
+   user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, db_column="userId", related_name="imagesAdded")
 
    class Meta:
-      db_table = 'app_artist_images'
+      db_table = 'artist_images'
       verbose_name = "artist image"
       verbose_name_plural = "artist images"
    
    def __str__(self):
-      return f"image added: {self.image}"
+      return self.image
 
 
 class ArtistModifications(models.Model):
    'Modelos de registro de modificaciones de los artistas'
-   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
-   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_DEFAULT, null=True, default=None, db_column="modifiedBy")
+   artist = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId", related_name="modifications")
+   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifiedBy", related_name="artistsModified")
    times = models.PositiveSmallIntegerField(default=1)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
 
    class Meta:
-      db_table = 'app_artist_modifications'
+      db_table = 'artist_modifications'
       verbose_name = "artist modifications"
       verbose_name_plural = "artist modifications"
    
    def __str__(self):
-      return f"modified artist: {self.artistId}"
+      return self.artist.name

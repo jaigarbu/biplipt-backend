@@ -24,27 +24,27 @@ class Album(models.Model):
    nativeName = models.CharField(max_length=80)
    type = models.CharField(max_length=6, choices=AlbumType.choices)
    country = models.CharField(max_length=2)
-   year = models.IntegerField(null=True, default=None)
-   number = models.IntegerField(null=True, default=None)
+   year = models.IntegerField(null=True, blank=True)
+   number = models.IntegerField(null=True, blank=True)
    language = models.CharField(max_length=20)
-   appleMusicID = models.CharField(max_length=255, null=True, default=None)
-   deezerID = models.CharField(max_length=255, null=True, default=None)
-   spotifyID = models.CharField(max_length=255, null=True, default=None)
-   youTubeID = models.CharField(max_length=255, null=True, default=None)
-   youTubeMusicID = models.CharField(max_length=255, null=True, default=None)
-   cover = models.CharField(max_length=80)
-   coverSD = models.CharField(max_length=80)
-   color = models.CharField(max_length=9)
-   vibrantColor = models.CharField(max_length=9)
+   appleMusicID = models.CharField(max_length=255, null=True, blank=True)
+   deezerID = models.CharField(max_length=255, null=True, blank=True)
+   spotifyID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeID = models.CharField(max_length=255, null=True, blank=True)
+   youTubeMusicID = models.CharField(max_length=255, null=True, blank=True)
+   cover = models.CharField(max_length=80, null=True, blank=True)
+   coverSD = models.CharField(max_length=80, null=True, blank=True)
+   color = models.CharField(max_length=9, null=True, blank=True)
+   vibrantColor = models.CharField(max_length=9, null=True, blank=True)
    views = models.BigIntegerField(default=0)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
-   genres = models.ManyToManyField(Genre, related_name="genres")
-   artistId = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId")
-   addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy")
+   genres = models.ManyToManyField(Genre, related_name="albums")
+   artist = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId", related_name="albums")
+   addedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="addedBy", related_name="albumsAdded")
    
    class Meta:
-      db_table = "app_albums"
+      db_table = "albums"
       verbose_name = "album"
       verbose_name_plural = "albums"
    
@@ -54,13 +54,13 @@ class Album(models.Model):
 
 class AlbumFT(models.Model):
    'Modelo de Feacturing de los álbumes'
-   albumId = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId")
+   album = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId", related_name="ft")
    name = models.CharField(max_length=80)
    nativeName = models.CharField(max_length=80)
-   dns = models.CharField(max_length=255)
+   dns = models.CharField(max_length=255, null=True, blank=True)
    
    class Meta:
-      db_table = 'app_album_ft'
+      db_table = 'album_ft'
       verbose_name = "album featuring"
       verbose_name_plural = "album featuring"
    
@@ -70,16 +70,16 @@ class AlbumFT(models.Model):
 
 class AlbumModifications(models.Model):
    'Modelos de registro de modificaciones de los artistas'
-   albumId = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId")
-   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, default=None, db_column="modifiedBy")
+   album = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId", related_name="modifications")
+   modifiedBy = models.ForeignKey(Admin, on_delete=models.SET_NULL, null=True, db_column="modifiedBy", related_name="albumsModified")
    times = models.PositiveSmallIntegerField(default=1)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
 
    class Meta:
-      db_table = 'app_album_modifications'
+      db_table = 'album_modifications'
       verbose_name = "album modifications"
       verbose_name_plural = "album modifications"
    
    def __str__(self):
-      return f"modified album: {self.albumId}"
+      return self.album.name
