@@ -19,3 +19,18 @@ class ItemVisibilityEnum(graphene.Enum):
    Private = 'private'
    Restricted = 'restricted'
    Block = 'block'
+
+
+class ArtistTypeEnum(graphene.Enum):
+   Band = 'band'
+   Chorister = 'choir'
+   Composer = 'composer'
+   dj = 'DJ'
+   Group = 'group'
+   Instrumentalist = 'instrumentalist'
+   Musician = 'musician'
+   Orchestra = 'orchestra'
+   Other = 'other'
+   Producer = 'producer'
+   Rapper = 'rapper'
+   Singer = 'singer'
