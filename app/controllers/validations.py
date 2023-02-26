@@ -2,13 +2,17 @@ import re
 
 from django.utils.translation import gettext as _
 
-from app.constants.regExp import (EXP_CELLPHONE, EXP_COUNTRY_CODE, EXP_EMAIL,
-                                  EXP_GENDER, EXP_LANGUAGE, EXP_NAME,
-                                  EXP_TOKEN_URL, EXP_USERNAME)
+from app.constants.regExp import (EXP_CELLPHONE, EXP_COLOR_HEX,
+                                  EXP_COUNTRY_CODE, EXP_EMAIL,
+                                  EXP_FACEBOOK_PROFILE, EXP_GENDER,
+                                  EXP_LANGUAGE, EXP_NAME, EXP_TAGS,
+                                  EXP_TOKEN_URL, EXP_URL, EXP_URL_COMPLETE,
+                                  EXP_URL_HASH, EXP_USERNAME)
 from app.utils.exceptions import ValidationError
 
 
-class ValidationsController():  
+class ValidationsController():
+   """Controlador de validaciones de campos y entradas de usuario"""
    
    @classmethod
    def validateRegisterUser(cls, params: dict):
@@ -42,11 +46,119 @@ class ValidationsController():
    
    
    @classmethod
+   def validateRegisterArtist(cls, params: dict):
+      """Valida los campos necesario para crear un artista en la base de datos
+      
+      :param `params: dict` — Campos a validar
+      """
+      # Validar campos obligatorios
+      cls.val_tags(params.get('tags'))
+      cls.val_name(params.get('name'))
+      cls.val_country_code(params.get('country'))
+      
+      # validar campos opcionales
+      if 'year' in params:
+         cls.val_year(params.get('year'))
+      
+      if 'appleMusicID' in params:
+         cls.val_url(params.get('appleMusicID'), True)
+      
+      if 'deezerID' in params:
+         cls.val_deezerId(params.get('deezerID'))
+      
+      if 'apotifyID' in params:
+         cls.val_hashUrl(params.get('apotifyID'))
+      
+      if 'youTubeID' in params:
+         cls.val_hashUrl(params.get('youTubeID'))
+      
+      if 'youTubeMusicID' in params:
+         cls.val_hashUrl(params.get('youTubeMusicID'))
+      
+      if 'facebookID' in params:
+         cls.val_facebookUserProfile(params.get('facebookID'))
+      
+      if 'instagramID' in params:
+         cls.val_username(params.get('instagramID'))
+      
+      if 'twitterID' in params:
+         cls.val_username(params.get('twitterID'))
+      
+      if 'web' in params:
+         cls.val_url(params.get('web'))
+      
+      if 'color' in params:
+         cls.val_hexColor(params.get('color'))
+      
+      if 'vibrantColor' in params:
+         cls.val_hexColor(params.get('vibrantColor'))
+   
+   
+   @classmethod
+   def validateUpdateArtist(cls, params: dict):
+      """Valida los campos que se pueden actaulizar de un artista
+      
+      :param `params: dict` — Campos a validar
+      """
+      if 'tags' in params:
+         cls.val_tags(params.get('tags'))
+      
+      if 'name' in params:
+         cls.val_name(params.get('name'))
+         
+      if 'country' in params:
+         cls.val_country_code(params.get('country'))
+         
+      if 'year' in params:
+         cls.val_year(params.get('year'))
+      
+      if 'appleMusicID' in params:
+         cls.val_url(params.get('appleMusicID'), True)
+      
+      if 'deezerID' in params:
+         cls.val_deezerId(params.get('deezerID'))
+      
+      if 'apotifyID' in params:
+         cls.val_hashUrl(params.get('apotifyID'))
+      
+      if 'youTubeID' in params:
+         cls.val_hashUrl(params.get('youTubeID'))
+      
+      if 'youTubeMusicID' in params:
+         cls.val_hashUrl(params.get('youTubeMusicID'))
+      
+      if 'facebookID' in params:
+         cls.val_facebookUserProfile(params.get('facebookID'))
+      
+      if 'instagramID' in params:
+         cls.val_username(params.get('instagramID'))
+      
+      if 'twitterID' in params:
+         cls.val_username(params.get('twitterID'))
+      
+      if 'web' in params:
+         cls.val_url(params.get('web'))
+      
+      if 'color' in params:
+         cls.val_hexColor(params.get('color'))
+      
+      if 'vibrantColor' in params:
+         cls.val_hexColor(params.get('vibrantColor'))
+   
+   
+   @classmethod
    def val_email(cls, email: str):
       'Valida un E-mail'
       if not re.search(EXP_EMAIL, email):
          raise ValidationError(_('Formato de correo electrónico inválido'), 'email')
 
+   
+   @classmethod
+   def val_year(cls, year: int|str):
+      'Valida un año'
+      if int(year) > 2023:
+         raise ValidationError(_('El año ingresado no es válido'))
+   
 
    @classmethod
    def val_id(cls, id):
@@ -108,7 +220,51 @@ class ValidationsController():
    def val_cellphone(cls, cellphone):
       'valida un numero de telefono con formato internacional'
       if not re.search(EXP_CELLPHONE, cellphone):
-         raise ValidationError(_('El número de teléfono no es válido'))
+         raise ValidationError(_('El número de teléfono no es válido'), 'cellphone')
+      
+      
+   @classmethod
+   def val_tags(cls, tags):
+      'Validad el campo de etiquetas'
+      if not re.search(EXP_TAGS, tags, re.IGNORECASE):
+         raise ValidationError(_('Las etiquetas ingresadas para este campo no tiene el formato correcto'), 'tags')
+   
+   
+   @classmethod
+   def val_url(cls, url: str, complete: bool = False):
+      'Valida direcciones URL'
+      if complete and not re.search(EXP_URL_COMPLETE, url):
+         raise ValidationError(_('Dirección URL inválida'), 'url')
+      elif not complete and not re.search(EXP_URL, url):
+         raise ValidationError(_('Dirección URL inválida'), 'url')
+   
+   
+   @classmethod
+   def val_deezerId(cls, id):
+      'Valida un ID de Deezer'
+      if not re.search(r'^[0-9]+$', id):
+         raise ValidationError(_('Id inválido'), 'id')
+   
+   
+   @classmethod
+   def val_hashUrl(cls, hash):
+      'Valida un hash de una URL'
+      if not re.search(EXP_URL_HASH, hash, re.IGNORECASE):
+         raise ValidationError(_('Identificador de recurso no válido'), 'id')
+   
+   
+   @classmethod
+   def val_facebookUserProfile(cls, username):
+      'Valida un hash de una URL de un perfil de facebook'
+      if not re.search(EXP_FACEBOOK_PROFILE, username, re.IGNORECASE):
+         raise ValidationError(_('Este nombre de usuario no es válido'), 'faecbookID')
+   
+   
+   @classmethod
+   def val_hexColor(cls, color):
+      'Valida un codigo de color en hexadecimal'
+      if not re.search(EXP_COLOR_HEX, color, re.IGNORECASE):
+         raise ValidationError(_('Este nombre de usuario no es válido'), 'color')
    
    
    @classmethod
