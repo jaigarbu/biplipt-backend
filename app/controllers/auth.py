@@ -1,4 +1,5 @@
 from codecs import decode, encode
+from typing import Any, NewType
 
 import bcrypt
 from django.utils.translation import gettext as _
@@ -25,7 +26,7 @@ class AuthController:
    restricted = _('Lo sentimos el recurso solicitado se encuentra restringido')
    
    @classmethod
-   def login(cls, email: str, password: str, headers: dict) -> str:
+   def login(cls, email: str, password: str, headers: dict[str, Any]) -> str:
       """Inicia sesión en el sistema
       
       :param `email: str` — Correo electrónico
@@ -40,7 +41,7 @@ class AuthController:
       # comprobar que no hay una session valida activa
       session = cls.validate_session(headers=headers)
       if isinstance(session, dict):
-         return headers.get('HTTP_AUTHORIZATION')
+         return headers['HTTP_AUTHORIZATION']
       
       try:
          # validar exiatencia de cuenta y credenciales
@@ -64,7 +65,7 @@ class AuthController:
    
    
    @classmethod
-   def validate_session(cls, headers: dict, key: str|None = None) -> dict|bool:
+   def validate_session(cls, headers: dict[str, Any], key: str|None = None) -> dict[str, str|int]|bool:
       """Verifica si existe una session actual válida
       
       :param `headers: dict` — Headers http de la consulta actual
@@ -78,7 +79,7 @@ class AuthController:
 
 
    @classmethod
-   def val_allow(cls, payload: dict|bool, group: int) -> bool:
+   def val_allow(cls, payload: dict[str, str|int]|bool, group: int) -> bool:
       """Comprueba los permisos de un usuario
       
       :param `payload: dict | bool` — Carga util de un JWT de session

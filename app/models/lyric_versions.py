@@ -36,7 +36,7 @@ class LyricVersions(models.Model):
    views = models.BigIntegerField(default=0)
    addedAt = models.DateTimeField(auto_now_add=True)
    updatedAt = models.DateTimeField(auto_now=True)
-   lyric = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId", related_name="versions")
+   origin = models.ForeignKey(Lyric, on_delete=models.CASCADE, db_column="lyricId", related_name="versions")
    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, db_column="artistId", related_name="lyricVersions")
    album = models.ForeignKey(Album, on_delete=models.CASCADE, db_column="albumId", related_name="lyricVersions")
    genres = models.ManyToManyField(Genre, related_name="lyricVersions")

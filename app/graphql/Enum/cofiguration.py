@@ -25,7 +25,7 @@ class ArtistTypeEnum(graphene.Enum):
    Band = 'band'
    Chorister = 'choir'
    Composer = 'composer'
-   dj = 'DJ'
+   Dj = 'DJ'
    Group = 'group'
    Instrumentalist = 'instrumentalist'
    Musician = 'musician'
@@ -34,3 +34,8 @@ class ArtistTypeEnum(graphene.Enum):
    Producer = 'producer'
    Rapper = 'rapper'
    Singer = 'singer'
+   
+
+class AlbumTypeEnum(graphene.Enum):
+   Album = 'album'
+   Single = 'single'

@@ -12,7 +12,7 @@ EXP_EMAIL = r'^[a-z0-9_-]+(?:\.[a-z0-9_-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\
 EXP_GENDER = r'^(M|F|O)$'
 EXP_PASSWORD = r'^[\w\d\W]{8,32}$'
 EXP_USERNAME = r'^[a-z0-9]+([a-z0-9-_\.][a-z0-9])+$'
-EXP_TAGS = r'^[a-z0-9À-ÿ]+(\s[a-z0-9À-ÿ]+)*(\,\s[a-z0-9À-ÿ]+)+$'
+EXP_TAGS = r'^[a-z0-9À-ÿ]+(\s[a-z0-9À-ÿ]+)*(\,\s([a-z0-9À-ÿ]+(\s[a-z0-9À-ÿ]+)*)+)*$'
 
 EXP_ALBUM_NAME = r'^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s[a-zA-ZÀ-ÿ\u00f1\u00d1\-\:]+)*$'
 EXP_GENRE_NAME = r'^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s[a-zA-ZÀ-ÿ\u00f1\u00d1\-]+)*$'
